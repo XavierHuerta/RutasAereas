@@ -26,13 +26,13 @@ public class MainFrame extends JFrame{
 
         panelInfo = new JPanel();
         panelInfo.setBackground(Color.BLACK);
-        panelInfo.setSize(250, 460);
-        panelInfo.setLocation(900,0);
+        panelInfo.setSize(250, 560);
+        panelInfo.setLocation(1000,0);
         panelInfo.setVisible(true);
 
         panelMapa = new MapaPanel();
         panelMapa.setBackground(Color.green);
-        panelMapa.setSize(900, 460);
+        panelMapa.setSize(1000, 560);
         panelMapa.setVisible(true);
 
         panelPrincipal.add(panelMapa, LEFT_ALIGNMENT);
@@ -45,7 +45,7 @@ public class MainFrame extends JFrame{
     private JPanel panelPrincipal;
     private JPanel panelInfo;
     private JPanel panelMapa;
-    private MapaPanel mapa = new MapaPanel();
+    //private MapaPanel mapa = new MapaPanel();
 
     class MapaPanel extends JPanel{
         private Image mapa;
