@@ -1,13 +1,19 @@
 import java.awt.*;
 import java.awt.geom.*;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 
 class Vertice {
+    /*Atributos del Vertice */
     private String nombre;
     private boolean visitado;
 	private Point2D origen; //punto origen (x,y)
+    private JLabel punto;//Etiqueta con el icon para el mapa
 	private Ellipse2D circulo;  //nodo visual Skin
 	private Color color;
+
     //Variables para Dijkstra
     private int dv;
     private Vertice pv;
@@ -19,19 +25,22 @@ class Vertice {
     private final static int diametro = 40;
 	
 
-    //Constructores
+    /* CONSTRUCTORES */
     public Vertice(){
-        this(new Point2D.Double(0,0));
+        //this(new Point2D.Double(0,0));
+        punto = new JLabel(new ImageIcon("src/images/bandera.png"));
     }
     public Vertice(Point2D p){
         this(p, "" + nVertices); //Se nombra al vertice por su número
+        punto.setBounds((int) p.getX(), (int) p.getY(), 26, 26);
     }
     public Vertice(Point2D p, String nombre){
         double x = p.getX();
         double y = p.getY();
-        origen = p;
-        color = Color.white;
-        circulo = new Ellipse2D.Double(x-diametro/2,y-diametro/2,diametro,diametro);
+        //origen = p;
+        //color = Color.white;
+        punto.setBounds((int) p.getX(), (int) p.getY(), 26, 26);
+        //circulo = new Ellipse2D.Double(x-diametro/2,y-diametro/2,diametro,diametro);
         this.nombre = nombre;
 
         //variables de dijkstra
@@ -40,7 +49,7 @@ class Vertice {
         nVertices++; 
     }
 
-    //Metodos del vertice ---------------------------------------
+    /* Metodos del vertice --------------------------------------- */
     public void dibujar(Graphics2D g2){
         g2.setPaint(color);
         g2.fill(circulo);

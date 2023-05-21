@@ -67,7 +67,7 @@ class Grafo {
             a.setPeso();
 
             M[x][y] = a;
-            //M[y][x] = a;
+            M[y][x] = a;
         }
     }
 	
@@ -137,7 +137,7 @@ class Grafo {
         }
 	}
 
-    //Rescorrido por anchura
+    /* RECORRIDO POR ARNCHURA ------------------------------------------------------------ */
 	public void BFS(String nombre_vi) {
         Vertice v_aux = null;
         //Vertice inicial
@@ -285,34 +285,25 @@ class Grafo {
     public int getOrden() {
         return this.orden;
     }
-
     public void setOrden(int orden) {
         this.orden = orden;
     }
-
     public ArrayList<Vertice> getVertices() {
         return this.vertices;
     }
-
     public void setVertices(ArrayList<Vertice> vertices) {
         this.vertices = vertices;
     }
-
     public Arista[][] getM() {
         return this.M;
     }
-
     public void setM(Arista[][] M) {
         this.M = M;
     }
-
     public ArrayList<Vertice> getRecorrido() {
         return this.recorrido;
     }
-
     public ArrayList<Arista> getRecorridoAristas(){
         return this.recorridoAristas;
     }
-
-
-} //clase
+} // Fin clase
