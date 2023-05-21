@@ -3,18 +3,15 @@ package ui;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
-import java.awt.GridBagLayout;
 import java.awt.Image;
-
-import javax.swing.BoxLayout;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
+import logic.Grafo;
 
 public class MainFrame extends JFrame{
     
@@ -44,21 +41,31 @@ public class MainFrame extends JFrame{
 
         /*Creacion de las etiquetas destino */
         //Etiquetas destino
-        bandera = new PuntoBandera();
-        bandera.setText("Aqui");
-        bandera.setForeground(Color.CYAN);
-        bandera.setBounds(100, 100, 100, 50);
+        // bandera = new PuntoBandera();
+        // bandera.setText("Aqui");
+        // bandera.setForeground(Color.CYAN);
+        // bandera.setBounds(100, 100, 100, 50);
         
-        marca = new JLabel(new ImageIcon("src/images/marcador.png"));
-        marca.setBackground(Color.BLACK);
-        marca.setBounds(40, 40, 30, 30);
+        // marca = new JLabel(new ImageIcon("src/images/marcador.png"));
+        // marca.setBackground(Color.BLACK);
+        // marca.setBounds(40, 40, 30, 30);
 
-        destino = new JLabel(new ImageIcon("src/images/bandera.png"));
-        destino.setBounds(150, 150, 26, 26);
-        //Etiqueta para paris
-        paris = new PuntoBandera();
-        paris.setBounds(780, 280, 30, 30);
+        // destino = new JLabel(new ImageIcon("src/images/bandera.png"));
+        // destino.setBounds(150, 150, 26, 26);
+        // //Etiqueta para paris
+        // paris = new PuntoBandera();
+        // paris.setBounds(780, 280, 30, 30);
 
+        grafo = new Grafo();
+        grafo.agregarVertice(780, 280, "Paris");
+        grafo.agregarVertice(825,300, "Venecia");
+        grafo.agregarVertice(400, 313, "Toronto");
+        grafo.agregarVertice(760, 260, "Londres");
+        grafo.agregarVertice(220, 370, "Los Angeles");
+        grafo.agregarVertice(825,260, "Berlin");
+        grafo.agregarVertice(775, 325, "Barcelona");
+        grafo.agregarVertice(423, 333, "New York");
+        grafo.agregarVertice(394, 415, "Miami");
 
         JButton boton = new JButton("Haz clic");
         // boton.setBounds(50, 50, 100, 30);
@@ -69,10 +76,13 @@ public class MainFrame extends JFrame{
         panelInfo.add(boton);
 
         //adicion de los marcadores al panelMapa
-        panelMapa.add(bandera);
-        panelMapa.add(marca);
-        panelMapa.add(destino);
-        panelMapa.add(paris);
+        //panelMapa.add(bandera);
+        // panelMapa.add(marca);
+        // panelMapa.add(destino);
+        // panelMapa.add(paris);
+        for(JLabel a : grafo.getVertices()){
+            panelMapa.add(a);
+        }
         
  
         add(panelMapa);
@@ -80,7 +90,7 @@ public class MainFrame extends JFrame{
     }
 
     /*Elementos del Panel Mapa */
-    private JPanel panelPrincipal;
+    //private JPanel panelPrincipal;
     private JPanel panelInfo;
     private JPanel panelMapa;
     //Etiquetas destino
@@ -110,7 +120,10 @@ public class MainFrame extends JFrame{
 
     //Clase para hacer etiquetas con un mismo icon
     class PuntoBandera extends JLabel{
+        private String nombre;
+        private boolean visitado;
         private ImageIcon bandera;
+
         public PuntoBandera(){
             bandera = new ImageIcon("src/images/bandera.png");
             setIcon(bandera);

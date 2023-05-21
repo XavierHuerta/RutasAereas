@@ -4,11 +4,12 @@ import java.awt.*;
 import java.awt.geom.*;
 import java.util.*;
 
+
 public class Grafo {
     private int orden; //orden del grafo (cantidad de vertices)
-    private ArrayList <Vertice> vertices; 
-    private ArrayList <Vertice> recorrido;
-    private ArrayList <Arista> recorridoAristas;
+    private ArrayList <Vertice> vertices; //Grafo de Etiquetas
+    private ArrayList <Vertice> recorrido; //Lista de etiquetas
+    private ArrayList <Arista> recorridoAristas; 
     private Arista [][] M;  //matriz de adyacencia
 	
     //Constructores
@@ -28,24 +29,24 @@ public class Grafo {
     //Metodos ------------------------------------------
     
     //Sobrecarga de metodo agregar vertice
-    public void agregarVertice(Point2D p){		
-        Vertice v = new Vertice(p);
+    public void agregarVertice(int x, int y){		
+        Vertice v = new Vertice(x, y);
         vertices.add(v);
     }
-    public void agregarVertice(Point2D p, String nombre){		
+    public void agregarVertice(int x, int y, String nombre){		
         // Por hacer:
-        Vertice v = new Vertice(p, nombre);
+        Vertice v = new Vertice(x, y, nombre);
         vertices.add(v);
     }
-	
+    
 	//obtiene el primer Vertice que contenga el punto p
-    public Vertice getVertice(Point2D p){
-	    for(Vertice v: vertices){
-            if(v.getCirculo().contains(p)) 
-                return v;
-        }
-        return null;
-    }
+    // public Vertice getVertice(Point2D p){
+	//     for(Vertice v: vertices){
+    //         if(v.getCirculo().contains(p)) 
+    //             return v;
+    //     }
+    //     return null;
+    // }
 
     public void agregarArista(Point2D po, Point2D pd){
         //indices
@@ -53,16 +54,16 @@ public class Grafo {
         int y = 0;
 
         
-        for(Vertice v: vertices){
-            if(v.getCirculo().contains(po)){
-                po = v.getOrigen();
-                x = vertices.indexOf(v);
-            }
-            else if (v.getCirculo().contains(pd)){
-                pd = v.getOrigen();
-                y = vertices.indexOf(v);
-            }
-        }
+        // for(Vertice v: vertices){
+        //     if(v.getCirculo().contains(po)){
+        //         po = v.getOrigen();
+        //         x = vertices.indexOf(v);
+        //     }
+        //     else if (v.getCirculo().contains(pd)){
+        //         pd = v.getOrigen();
+        //         y = vertices.indexOf(v);
+        //     }
+        // }
 
         if(po != null && pd != null){
             Arista a = new Arista(po, pd);
@@ -101,9 +102,9 @@ public class Grafo {
         }
 
         //pintamos los vertices
-	 	for(Vertice v: vertices){
-            v.dibujar(g2);
-        }
+	 	// for(Vertice v: vertices){
+        //     v.dibujar(g2);
+        // }
 
 	}
 
@@ -114,10 +115,10 @@ public class Grafo {
     }
 
     //Colorea los vertices
-    public void colorearVertices(Color color) {           
-        for(Vertice v: vertices)
-            v.setColor(color);
-    }
+    // public void colorearVertices(Color color) {           
+    //     for(Vertice v: vertices)
+    //         v.setColor(color);
+    // }
 
     /* RECORIDOS ----------------------------------------------------------------------------- */
 	public void DFS(String nombre_vi) {
