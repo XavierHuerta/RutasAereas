@@ -1,8 +1,10 @@
+package logic;
+
 import java.awt.*;
 import java.awt.geom.*;
 import java.util.*;
 
-class Grafo {
+public class Grafo {
     private int orden; //orden del grafo (cantidad de vertices)
     private ArrayList <Vertice> vertices; 
     private ArrayList <Vertice> recorrido;

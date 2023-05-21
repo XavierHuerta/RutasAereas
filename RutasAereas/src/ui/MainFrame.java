@@ -84,6 +84,7 @@ public class MainFrame extends JFrame{
     private JPanel panelInfo;
     private JPanel panelMapa;
     //Etiquetas destino
+    private Grafo grafo;
     private JLabel bandera;
     private JLabel marca;
     private JLabel destino;
