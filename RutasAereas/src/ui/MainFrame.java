@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Point2D;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -55,8 +57,7 @@ public class MainFrame extends JFrame{
         grafo.agregarVertice(423, 333, "New York");
         grafo.agregarVertice(394, 415, "Miami");
 
-        grafo.agregarArista(getMousePosition(), getLocation());
-
+        
         JButton boton = new JButton("Haz clic");
         // boton.setBounds(50, 50, 100, 30);
         
@@ -96,6 +97,7 @@ public class MainFrame extends JFrame{
     private JPanel panelInfo;
     private JPanel panelMapa;
     private Grafo grafo;//Grafo con los destinos
+    private Point2D p2;
 
     /*Elementos del panel Info */
     

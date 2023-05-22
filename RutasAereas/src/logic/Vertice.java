@@ -1,12 +1,14 @@
 package logic;
 
+import java.awt.Point;
 import java.awt.event.MouseListener;
+import java.awt.geom.Point2D;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
-class Vertice extends JLabel{
+public class Vertice extends JLabel{
     /*Atributos del Vertice */
     private ImageIcon bandera;
     private String nombre;
@@ -18,6 +20,8 @@ class Vertice extends JLabel{
     public static int nVertices = 1;  //contador  de vertices creados
     //Diametro Constante
 	private final static int dimencion = 24;
+    //Centro
+    private Point2D.Double centro;
 
     /* CONSTRUCTORES ------------------------------------------------------------------*/
     public Vertice(){
@@ -27,11 +31,13 @@ class Vertice extends JLabel{
         bandera = new ImageIcon("src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
+        centro = new Point2D.Double(x, y);
     }
     public Vertice(int x, int y, String nombre){
         bandera = new ImageIcon("src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
+        centro = new Point2D.Double(x, y);
         this.nombre = nombre;
 
         //variables de dijkstra
@@ -71,5 +77,12 @@ class Vertice extends JLabel{
     }
     public Vertice getPv(){
         return pv;
+    }
+    public Point2D.Double getCentro() {
+        return this.centro;
+    }
+
+    public void setCentro(Point2D.Double centro) {
+        this.centro = centro;
     }
 } //fin clase vertice
