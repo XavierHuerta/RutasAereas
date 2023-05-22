@@ -1,7 +1,6 @@
 package logic;
 
-import java.awt.*;
-import java.awt.geom.*;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -18,19 +17,19 @@ class Vertice extends JLabel{
     //Variable de clase
     public static int nVertices = 1;  //contador  de vertices creados
     //Diametro Constante
-	private final static int dimencion = 26;
+	private final static int dimencion = 24;
 
     /* CONSTRUCTORES ------------------------------------------------------------------*/
     public Vertice(){
     }
     public Vertice(int x, int y){
         //this(x,y, "" + nVertices); //Se nombra al vertice por su número
-        bandera = new ImageIcon("src/images/bandera.png");
+        bandera = new ImageIcon("src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
     }
     public Vertice(int x, int y, String nombre){
-        bandera = new ImageIcon("src/images/bandera.png");
+        bandera = new ImageIcon("src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
         this.nombre = nombre;
@@ -39,6 +38,13 @@ class Vertice extends JLabel{
         dv = 0;
         pv = null;
         nVertices++; 
+    }
+
+    /*MEtodos vistosos */
+    @Override
+    public synchronized void addMouseListener(MouseListener l) {
+        
+        super.addMouseListener(l);
     }
 
     /* Metodos de Acceso --------------------------------------- */

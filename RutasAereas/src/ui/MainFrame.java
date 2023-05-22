@@ -4,25 +4,29 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import javax.swing.text.AbstractDocument.Content;
 
 import logic.Grafo;
 
 public class MainFrame extends JFrame{
     
     public MainFrame(){
-        
         initComponents();
-        //this.setContentPane(mapa);
+        setBackground(Color.decode("#2482B5"));
     }
 
     public void initComponents(){
         setLayout(null);
+        getContentPane().setBackground(Color.decode("#A1E5F7"));
+        
 
         //Propiedades del Panel Info
         panelInfo = new JPanel();
@@ -40,22 +44,6 @@ public class MainFrame extends JFrame{
         panelMapa.setVisible(true);
 
         /*Creacion de las etiquetas destino */
-        //Etiquetas destino
-        // bandera = new PuntoBandera();
-        // bandera.setText("Aqui");
-        // bandera.setForeground(Color.CYAN);
-        // bandera.setBounds(100, 100, 100, 50);
-        
-        // marca = new JLabel(new ImageIcon("src/images/marcador.png"));
-        // marca.setBackground(Color.BLACK);
-        // marca.setBounds(40, 40, 30, 30);
-
-        // destino = new JLabel(new ImageIcon("src/images/bandera.png"));
-        // destino.setBounds(150, 150, 26, 26);
-        // //Etiqueta para paris
-        // paris = new PuntoBandera();
-        // paris.setBounds(780, 280, 30, 30);
-
         grafo = new Grafo();
         grafo.agregarVertice(780, 280, "Paris");
         grafo.agregarVertice(825,300, "Venecia");
@@ -67,44 +55,54 @@ public class MainFrame extends JFrame{
         grafo.agregarVertice(423, 333, "New York");
         grafo.agregarVertice(394, 415, "Miami");
 
+        grafo.agregarArista(getMousePosition(), getLocation());
+
         JButton boton = new JButton("Haz clic");
         // boton.setBounds(50, 50, 100, 30);
         
-        
-
 
         panelInfo.add(boton);
 
         //adicion de los marcadores al panelMapa
-        //panelMapa.add(bandera);
-        // panelMapa.add(marca);
-        // panelMapa.add(destino);
-        // panelMapa.add(paris);
         for(JLabel a : grafo.getVertices()){
+            a.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseEntered(MouseEvent evt){
+                    a.setSize(32, 32);
+                    a.setLocation(a.getX() - 4, a.getY() - 8);
+                    a.setIcon(new ImageIcon("src/images/marca2.png"));
+                    
+
+                }
+                @Override
+                public void mouseExited(MouseEvent evt){
+                    a.setSize(24, 24);
+                    a.setLocation(a.getX() + 4, a.getY() + 8);
+                    a.setIcon(new ImageIcon("src/images/marca1.png"));
+                }
+            });
+
+            //Añade el vertice label al grafo
             panelMapa.add(a);
         }
         
- 
+        //Adicion de los paneles al JFrame
         add(panelMapa);
         add(panelInfo);
     }
 
     /*Elementos del Panel Mapa */
-    //private JPanel panelPrincipal;
+    //private Content contentPane;
     private JPanel panelInfo;
     private JPanel panelMapa;
-    //Etiquetas destino
-    private Grafo grafo;
-    private JLabel bandera;
-    private JLabel marca;
-    private JLabel destino;
-    private JLabel paris;
+    private Grafo grafo;//Grafo con los destinos
 
     /*Elementos del panel Info */
     
     
 
     /*CLASES INTERNAS -------------------------------------------------------------------------------- */
+
     //Clase para hacer el panel con fondo de mapa
     class MapaPanel extends JPanel{
         private Image mapa;
@@ -119,14 +117,14 @@ public class MainFrame extends JFrame{
     }
 
     //Clase para hacer etiquetas con un mismo icon
-    class PuntoBandera extends JLabel{
-        private String nombre;
-        private boolean visitado;
-        private ImageIcon bandera;
+    // class PuntoBandera extends JLabel{
+    //     private String nombre;
+    //     private boolean visitado;
+    //     private ImageIcon bandera;
 
-        public PuntoBandera(){
-            bandera = new ImageIcon("src/images/bandera.png");
-            setIcon(bandera);
-        }
-    }
+    //     public PuntoBandera(){
+    //         bandera = new ImageIcon("src/images/bandera.png");
+    //         setIcon(bandera);
+    //     }
+    // }
 }
