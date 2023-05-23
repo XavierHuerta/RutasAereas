@@ -54,16 +54,16 @@ public class Grafo {
         int y = 0;
 
         
-        for(Vertice v: vertices){
-            if(v.getCirculo().contains(po)){
-                po = v.getOrigen();
-                x = vertices.indexOf(v);
-            }
-            else if (v.getCirculo().contains(pd)){
-                pd = v.getOrigen();
-                y = vertices.indexOf(v);
-            }
-        }
+        // for(Vertice v: vertices){
+        //     if(v.getCirculo().contains(po)){
+        //         po = v.getOrigen();
+        //         x = vertices.indexOf(v);
+        //     }
+        //     else if (v.getCirculo().contains(pd)){
+        //         pd = v.getOrigen();
+        //         y = vertices.indexOf(v);
+        //     }
+        // }
 
         if(po != null && pd != null){
             Arista a = new Arista(po, pd);

@@ -17,6 +17,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.text.AbstractDocument.Content;
 
 import logic.Grafo;
+import logic.Vertice;
 
 public class MainFrame extends JFrame{
     
@@ -56,6 +57,8 @@ public class MainFrame extends JFrame{
         grafo.agregarVertice(775, 325, "Barcelona");
         grafo.agregarVertice(423, 333, "New York");
         grafo.agregarVertice(394, 415, "Miami");
+        grafo.agregarVertice(300, 420, "Monterrey");
+        grafo.agregarVertice(200, 285, "Vancouver");
 
         
         JButton boton = new JButton("Haz clic");
@@ -65,15 +68,14 @@ public class MainFrame extends JFrame{
         panelInfo.add(boton);
 
         //adicion de los marcadores al panelMapa
-        for(JLabel a : grafo.getVertices()){
+        for(Vertice a : grafo.getVertices()){
             a.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseEntered(MouseEvent evt){
                     a.setSize(32, 32);
                     a.setLocation(a.getX() - 4, a.getY() - 8);
                     a.setIcon(new ImageIcon("src/images/marca2.png"));
-                    
-
+                    //a.getWin().setVisible(true);
                 }
                 @Override
                 public void mouseExited(MouseEvent evt){

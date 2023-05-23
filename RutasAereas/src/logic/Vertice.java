@@ -5,7 +5,10 @@ import java.awt.event.MouseListener;
 import java.awt.geom.Point2D;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import ui.Win;
 
 
 public class Vertice extends JLabel{
@@ -22,6 +25,7 @@ public class Vertice extends JLabel{
 	private final static int dimencion = 24;
     //Centro
     private Point2D.Double centro;
+    private Win ventanita;
 
     /* CONSTRUCTORES ------------------------------------------------------------------*/
     public Vertice(){
@@ -32,6 +36,8 @@ public class Vertice extends JLabel{
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
         centro = new Point2D.Double(x, y);
+        mostrarVentana();
+        
     }
     public Vertice(int x, int y, String nombre){
         bandera = new ImageIcon("src/images/marca1.png");
@@ -39,6 +45,7 @@ public class Vertice extends JLabel{
         setBounds(x, y, dimencion, dimencion);
         centro = new Point2D.Double(x, y);
         this.nombre = nombre;
+        mostrarVentana();
 
         //variables de dijkstra
         dv = 0;
@@ -51,6 +58,11 @@ public class Vertice extends JLabel{
     public synchronized void addMouseListener(MouseListener l) {
         
         super.addMouseListener(l);
+    }
+
+    public void mostrarVentana(){
+        ventanita = new Win();
+        ventanita.setSize(200, 300);
     }
 
     /* Metodos de Acceso --------------------------------------- */
@@ -84,5 +96,8 @@ public class Vertice extends JLabel{
 
     public void setCentro(Point2D.Double centro) {
         this.centro = centro;
+    }
+    public JFrame getWin(){
+        return ventanita;
     }
 } //fin clase vertice
