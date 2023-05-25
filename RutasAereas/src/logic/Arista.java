@@ -33,10 +33,10 @@ public class Arista {
     public void dibujar(Graphics2D g2){
         g2.setPaint(color);
         g2.draw(linea);
-        g2.setPaint(Color.CYAN);
+        g2.setPaint(Color.BLACK);//Color del Peso
 
         //mostrar peso entre arista
-        g2.drawString(String.valueOf(peso), (float) ((pi.getX() + pf.getX()) / 2), (float) ((pi.getY() + pf.getY()) / 2) );
+        //g2.drawString(String.valueOf(peso), (float) ((pi.getX() + pf.getX()) / 2), (float) ((pi.getY() + pf.getY()) / 2) );
     }
 
     /* METODOS DE ACCESO ------------------------------------------------------------------------------ */

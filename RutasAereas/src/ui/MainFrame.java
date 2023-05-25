@@ -102,6 +102,7 @@ public class MainFrame extends JFrame{
 
             //System.out.println(grafo.buscarVi("Venecia").getOrigen().toString());
             grafo.agregarArista(grafo.buscarVi("Paris").getOrigen(), grafo.buscarVi("Venecia").getOrigen(), 10);
+            grafo.agregarArista(grafo.buscarVi("Monterrey").getOrigen(), grafo.buscarVi("Miami").getOrigen(), 10);
 
             //adicion de los marcadores al panelMapa
             for(Vertice a : grafo.getVertices()){
@@ -111,13 +112,14 @@ public class MainFrame extends JFrame{
                         a.setSize(32, 32);
                         a.setLocation(a.getX() - 4, a.getY() - 8);
                         a.setIcon(new ImageIcon("src/images/marca2.png"));
-                        //a.getWin().setVisible(true);
+                        a.getWin().setVisible(true);
                     }
                     @Override
                     public void mouseExited(MouseEvent evt){
                         a.setSize(24, 24);
                         a.setLocation(a.getX() + 4, a.getY() + 8);
                         a.setIcon(new ImageIcon("src/images/marca1.png"));
+                        a.getWin().setVisible(false);
                     }
                 });
 
