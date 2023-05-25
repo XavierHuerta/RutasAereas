@@ -96,6 +96,9 @@ public class MainFrame extends JFrame{
             grafo.agregarVertice(300, 420, "Monterrey");
             grafo.agregarVertice(200, 285, "Vancouver");
             grafo.agregarVertice(310, 455, "Ciudad de México");
+            grafo.agregarVertice(360, 440, "Cancún");
+            grafo.agregarVertice(905,395, "El Cairo");
+            grafo.agregarVertice(735, 350, "Sevilla");
 
             /*creacion de las aristas */
 
