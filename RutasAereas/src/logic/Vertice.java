@@ -24,6 +24,7 @@ public class Vertice extends JLabel{
     //Diametro Constante
 	private final static int dimencion = 24;
     //Centro
+    private Point2D origen;
     private Point2D.Double centro;
     private Win ventanita;
 
@@ -35,7 +36,8 @@ public class Vertice extends JLabel{
         bandera = new ImageIcon("src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
-        centro = new Point2D.Double(x, y);
+        //centro = new Point2D.Double(x, y);
+        origen = getLocation();
         mostrarVentana();
         
     }
@@ -43,7 +45,8 @@ public class Vertice extends JLabel{
         bandera = new ImageIcon("src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
-        centro = new Point2D.Double(x, y);
+        //centro = new Point2D.Double(x, y);
+        origen = getLocation();
         this.nombre = nombre;
         mostrarVentana();
 
@@ -90,12 +93,12 @@ public class Vertice extends JLabel{
     public Vertice getPv(){
         return pv;
     }
-    public Point2D.Double getCentro() {
-        return this.centro;
+    public Point2D getOrigen() {
+        return this.origen;
     }
 
-    public void setCentro(Point2D.Double centro) {
-        this.centro = centro;
+    public void setOrigen(Point2D origen) {
+        this.origen = origen;
     }
     public JFrame getWin(){
         return ventanita;

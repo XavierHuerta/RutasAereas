@@ -36,7 +36,7 @@ public class Arista {
         g2.setPaint(Color.CYAN);
 
         //mostrar peso entre arista
-        //g2.drawString(String.valueOf(peso), (float) ((pi.getX() + pf.getX()) / 2), (float) ((pi.getY() + pf.getY()) / 2) );
+        g2.drawString(String.valueOf(peso), (float) ((pi.getX() + pf.getX()) / 2), (float) ((pi.getY() + pf.getY()) / 2) );
     }
 
     /* METODOS DE ACCESO ------------------------------------------------------------------------------ */
