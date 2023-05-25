@@ -1,5 +1,6 @@
 package logic;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.*;
@@ -24,13 +25,16 @@ public class Arista {
         this.peso = peso;
         this.pi = pi;
         this.pf = pf;
-        color = Color.RED;
+        color = Color.red;
         linea = new Line2D.Double(pi,pf);
     }
  
     /* METODOS ----------------------------------------------------------------------------------- */
     //Dibuja la linea
     public void dibujar(Graphics2D g2){
+        //Graphics2D grosor = g2;
+        BasicStroke grosor1 = new BasicStroke(2);
+        g2.setStroke(grosor1);
         g2.setPaint(color);
         g2.draw(linea);
         g2.setPaint(Color.BLACK);//Color del Peso
