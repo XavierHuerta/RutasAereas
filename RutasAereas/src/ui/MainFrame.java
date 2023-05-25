@@ -12,10 +12,8 @@ import java.awt.geom.Point2D;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import javax.swing.text.AbstractDocument.Content;
 
 import logic.Grafo;
 import logic.Vertice;
@@ -97,6 +95,7 @@ public class MainFrame extends JFrame{
             grafo.agregarVertice(394, 415, "Miami");
             grafo.agregarVertice(300, 420, "Monterrey");
             grafo.agregarVertice(200, 285, "Vancouver");
+            grafo.agregarVertice(310, 455, "Ciudad de México");
 
             /*creacion de las aristas */
 
