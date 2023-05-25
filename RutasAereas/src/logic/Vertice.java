@@ -25,7 +25,8 @@ public class Vertice extends JLabel{
 	private final static int dimencion = 24;
     //Centro
     private Point2D origen;
-    private Point2D.Double centro;
+    private Point correccion;
+
     private Win ventanita;
 
     /* CONSTRUCTORES ------------------------------------------------------------------*/
@@ -37,7 +38,11 @@ public class Vertice extends JLabel{
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
         //centro = new Point2D.Double(x, y);
-        origen = getLocation();
+
+        //Correccion de origen
+        correccion = new Point(getLocation().x + 12, getLocation().y + 23);
+        System.out.println(correccion.toString());
+        origen = correccion;
         mostrarVentana();
         
     }
@@ -46,7 +51,10 @@ public class Vertice extends JLabel{
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
         //centro = new Point2D.Double(x, y);
-        origen = getLocation();
+        //Correccion de origen
+        correccion = new Point(getLocation().x + 12, getLocation().y + 23);
+        System.out.println(correccion.toString());
+        origen = correccion;
         this.nombre = nombre;
         mostrarVentana();
 
@@ -64,8 +72,7 @@ public class Vertice extends JLabel{
     }
 
     public void mostrarVentana(){
-        ventanita = new Win();
-        ventanita.setSize(200, 300);
+        ventanita = new Win(this);
     }
 
     /* Metodos de Acceso --------------------------------------- */
@@ -103,4 +110,5 @@ public class Vertice extends JLabel{
     public JFrame getWin(){
         return ventanita;
     }
+    
 } //fin clase vertice
