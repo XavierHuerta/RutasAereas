@@ -48,26 +48,26 @@ public class Grafo {
     //     return null;
     // }
 
-    public void agregarArista(Point2D po, Point2D pd){
+    public void agregarArista(Point2D po, Point2D pd, int peso){
         //indices
         int x = 0;
         int y = 0;
 
         
-        // for(Vertice v: vertices){
-        //     if(v.getCirculo().contains(po)){
-        //         po = v.getOrigen();
-        //         x = vertices.indexOf(v);
-        //     }
-        //     else if (v.getCirculo().contains(pd)){
-        //         pd = v.getOrigen();
-        //         y = vertices.indexOf(v);
-        //     }
-        // }
+        for(Vertice v: vertices){
+            if(v.getOrigen() == po){
+                po = v.getOrigen();
+                x = vertices.indexOf(v);
+            }
+            else if (v.getOrigen() == pd){
+                pd = v.getOrigen();
+                y = vertices.indexOf(v);
+            }
+        }
 
         if(po != null && pd != null){
-            Arista a = new Arista(po, pd);
-            a.setPeso();
+            Arista a = new Arista(po, pd, peso);
+            //a.setPeso();
 
             M[x][y] = a;
             M[y][x] = a;
@@ -101,7 +101,7 @@ public class Grafo {
             }
         }
 
-        //pintamos los vertices
+        // //pintamos los vertices
 	 	// for(Vertice v: vertices){
         //     v.dibujar(g2);
         // }
@@ -255,7 +255,7 @@ public class Grafo {
 
     public Vertice buscarVi(String nombre_vi){
         //buscar el vertice con el nombre ingresado
-        for (Vertice vi : getVertices()) {
+        for (Vertice vi : vertices) {
             if(vi.getNombre().equals(nombre_vi)){
                 return vi;
             }

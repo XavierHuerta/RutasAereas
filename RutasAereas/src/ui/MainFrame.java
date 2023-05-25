@@ -3,6 +3,7 @@ package ui;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -46,20 +47,7 @@ public class MainFrame extends JFrame{
         panelMapa.setSize(1000, 560);
         panelMapa.setVisible(true);
 
-        /*Creacion de las etiquetas destino */
-        grafo = new Grafo();
-        grafo.agregarVertice(780, 280, "Paris");
-        grafo.agregarVertice(825,300, "Venecia");
-        grafo.agregarVertice(400, 313, "Toronto");
-        grafo.agregarVertice(760, 260, "Londres");
-        grafo.agregarVertice(220, 370, "Los Angeles");
-        grafo.agregarVertice(825,260, "Berlin");
-        grafo.agregarVertice(775, 325, "Barcelona");
-        grafo.agregarVertice(423, 333, "New York");
-        grafo.agregarVertice(394, 415, "Miami");
-        grafo.agregarVertice(300, 420, "Monterrey");
-        grafo.agregarVertice(200, 285, "Vancouver");
-
+        
         
         JButton boton = new JButton("Haz clic");
         // boton.setBounds(50, 50, 100, 30);
@@ -67,27 +55,7 @@ public class MainFrame extends JFrame{
 
         panelInfo.add(boton);
 
-        //adicion de los marcadores al panelMapa
-        for(Vertice a : grafo.getVertices()){
-            a.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseEntered(MouseEvent evt){
-                    a.setSize(32, 32);
-                    a.setLocation(a.getX() - 4, a.getY() - 8);
-                    a.setIcon(new ImageIcon("src/images/marca2.png"));
-                    //a.getWin().setVisible(true);
-                }
-                @Override
-                public void mouseExited(MouseEvent evt){
-                    a.setSize(24, 24);
-                    a.setLocation(a.getX() + 4, a.getY() + 8);
-                    a.setIcon(new ImageIcon("src/images/marca1.png"));
-                }
-            });
-
-            //Añade el vertice label al grafo
-            panelMapa.add(a);
-        }
+        
         
         //Adicion de los paneles al JFrame
         add(panelMapa);
@@ -98,10 +66,12 @@ public class MainFrame extends JFrame{
     //private Content contentPane;
     private JPanel panelInfo;
     private JPanel panelMapa;
-    private Grafo grafo;//Grafo con los destinos
+    //private Grafo grafo;//Grafo con los destinos
     private Point2D p2;
 
     /*Elementos del panel Info */
+    
+
     
     
 
@@ -110,6 +80,51 @@ public class MainFrame extends JFrame{
     //Clase para hacer el panel con fondo de mapa
     class MapaPanel extends JPanel{
         private Image mapa;
+        private Grafo grafo;//Grafo con los destinos
+
+        public MapaPanel(){
+
+            /*Creacion de las etiquetas destino */
+            grafo = new Grafo();
+            grafo.agregarVertice(780, 280, "Paris");
+            grafo.agregarVertice(825,300, "Venecia");
+            grafo.agregarVertice(400, 313, "Toronto");
+            grafo.agregarVertice(760, 260, "Londres");
+            grafo.agregarVertice(220, 370, "Los Angeles");
+            grafo.agregarVertice(825,260, "Berlin");
+            grafo.agregarVertice(775, 325, "Barcelona");
+            grafo.agregarVertice(423, 333, "New York");
+            grafo.agregarVertice(394, 415, "Miami");
+            grafo.agregarVertice(300, 420, "Monterrey");
+            grafo.agregarVertice(200, 285, "Vancouver");
+
+            /*creacion de las aristas */
+
+            //System.out.println(grafo.buscarVi("Venecia").getOrigen().toString());
+            grafo.agregarArista(grafo.buscarVi("Paris").getOrigen(), grafo.buscarVi("Venecia").getOrigen(), 10);
+
+            //adicion de los marcadores al panelMapa
+            for(Vertice a : grafo.getVertices()){
+                a.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseEntered(MouseEvent evt){
+                        a.setSize(32, 32);
+                        a.setLocation(a.getX() - 4, a.getY() - 8);
+                        a.setIcon(new ImageIcon("src/images/marca2.png"));
+                        //a.getWin().setVisible(true);
+                    }
+                    @Override
+                    public void mouseExited(MouseEvent evt){
+                        a.setSize(24, 24);
+                        a.setLocation(a.getX() + 4, a.getY() + 8);
+                        a.setIcon(new ImageIcon("src/images/marca1.png"));
+                    }
+                });
+
+                //Añade el vertice label al grafo
+                add(a);
+            }
+        }
 
         @Override
         public void paint(Graphics g){
@@ -118,17 +133,12 @@ public class MainFrame extends JFrame{
             setOpaque(false);
             super.paint(g);
         }
+        
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+            Graphics2D g2 = (Graphics2D)g; 
+            //setBackground(Color.darkGray);
+            grafo.dibujar(g2);
+        }
     }
-
-    //Clase para hacer etiquetas con un mismo icon
-    // class PuntoBandera extends JLabel{
-    //     private String nombre;
-    //     private boolean visitado;
-    //     private ImageIcon bandera;
-
-    //     public PuntoBandera(){
-    //         bandera = new ImageIcon("src/images/bandera.png");
-    //         setIcon(bandera);
-    //     }
-    // }
 }
