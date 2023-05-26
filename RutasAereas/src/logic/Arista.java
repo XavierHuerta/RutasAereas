@@ -50,7 +50,7 @@ public class Arista {
 
         Path2D curva = new Path2D.Double();
         curva.moveTo(pi.getX(), pi.getY());
-        curva.curveTo(pi.getX(), pi.getY(), (pi.getX() + pf.getX()) / 2, ((pi.getY() + pf.getY()) / 2) - 30, pf.getX(), pf.getY());
+        curva.curveTo(pi.getX(), pi.getY(), (pi.getX() + pf.getX()) / 2, ((pi.getY() + pf.getY()) / 2) - 50, pf.getX(), pf.getY());
 
         float[] dashPattern = {5, 5};
         Graphics2D g2d = (Graphics2D) g;
