@@ -7,7 +7,6 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Point2D;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -64,8 +63,6 @@ public class MainFrame extends JFrame{
     //private Content contentPane;
     private JPanel panelInfo;
     private JPanel panelMapa;
-    //private Grafo grafo;//Grafo con los destinos
-    private Point2D p2;
 
     /*Elementos del panel Info */
     

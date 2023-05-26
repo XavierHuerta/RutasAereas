@@ -2,6 +2,7 @@ package logic;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.*;
 
@@ -25,15 +26,14 @@ public class Arista {
         this.peso = peso;
         this.pi = pi;
         this.pf = pf;
-        color = Color.red;
+        color = Color.BLACK;
         linea = new Line2D.Double(pi,pf);
     }
  
     /* METODOS ----------------------------------------------------------------------------------- */
     //Dibuja la linea
     public void dibujar(Graphics2D g2){
-        //Graphics2D grosor = g2;
-        BasicStroke grosor1 = new BasicStroke(2);
+        BasicStroke grosor1 = new BasicStroke(2);//Grosor de la linea
         g2.setStroke(grosor1);
         g2.setPaint(color);
         g2.draw(linea);
@@ -41,6 +41,22 @@ public class Arista {
 
         //mostrar peso entre arista
         //g2.drawString(String.valueOf(peso), (float) ((pi.getX() + pf.getX()) / 2), (float) ((pi.getY() + pf.getY()) / 2) );
+    }
+
+    public void pintar(Graphics g){
+        g.setColor(Color.red);
+
+        //Calcular punto medio
+
+        Path2D curva = new Path2D.Double();
+        curva.moveTo(pi.getX(), pi.getY());
+        curva.curveTo(pi.getX(), pi.getY(), (pi.getX() + pf.getX()) / 2, ((pi.getY() + pf.getY()) / 2) - 30, pf.getX(), pf.getY());
+
+        float[] dashPattern = {5, 5};
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setStroke(new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1, dashPattern, 0));
+        g2d.draw(curva);
+
     }
 
     /* METODOS DE ACCESO ------------------------------------------------------------------------------ */

@@ -96,7 +96,8 @@ public class Grafo {
         for(int i = 0; i < orden; i++){
             for(int j = 0; j < orden; j++){
                 if(M[i][j] != null){
-                    M[i][j].dibujar(g2);
+                    //M[i][j].dibujar(g2);
+                    M[i][j].pintar(g2);
                 }
             }
         }
