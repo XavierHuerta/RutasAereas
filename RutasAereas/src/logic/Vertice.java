@@ -112,5 +112,11 @@ public class Vertice extends JLabel{
     public JFrame getWin(){
         return ventanita;
     }
+    public int getnLugar() {
+        return nLugar;
+    }
+    public void setnLugar(int nLugar) {
+        Vertice.nLugar = nLugar;
+    }
     
 } //fin clase vertice
