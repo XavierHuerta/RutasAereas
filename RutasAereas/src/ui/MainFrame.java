@@ -91,8 +91,13 @@ public class MainFrame extends JFrame{
             }
         });
 
-       // panelInfo.add(boton);  
+        // panelInfo.add(boton);  
+        btnBuscar = new BtnBuscar();
+        btnBuscar.setLocation(40, 400);
+
+
         panelInfo.add(listaCiudad);
+        panelInfo.add(btnBuscar);
         
         
         //Adicion de los paneles al JFrame
@@ -105,6 +110,7 @@ public class MainFrame extends JFrame{
     private JPanel panelInfo;
     private JPanel panelMapa;
     private JFrame error;
+    private JPanel btnBuscar;
 
 
     
@@ -200,7 +206,7 @@ public class MainFrame extends JFrame{
         private JLabel btnBuscar;
 
         public BtnBuscar(){
-            setBounds(10, 10, 50, 30);
+            setSize(100, 30);
             setBackground(Color.CYAN);
             setVisible(true);
 
