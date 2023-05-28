@@ -47,10 +47,11 @@ public class Vertice extends JLabel{
         mostrarVentana();
         
     }
-    public Vertice(int x, int y, String nombre){
+    public Vertice(int x, int y, String nombre, int index){
         bandera = new ImageIcon("src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
+        nLugar = index;
         //centro = new Point2D.Double(x, y);
         //Correccion de origen
         correccion = new Point(getLocation().x + 12, getLocation().y + 23);
