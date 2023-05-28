@@ -50,7 +50,7 @@ public class Win extends JFrame {
         fotos.setBackground(Color.GREEN);
         fotos.setBounds(50, 50, 100, 100);
 
-        visa = new JLabel(new ImageIcon("src/images/visa16.png"));
+        visa = new JLabel(new ImageIcon("RutasAereas/src/images/visa16.png"));
         visa.setLocation(166, 266);
         visa.setSize(24, 24);
         
