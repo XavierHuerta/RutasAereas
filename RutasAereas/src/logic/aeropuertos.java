@@ -17,11 +17,14 @@ public class aeropuertos {
             String aeropuerto=verticesbuffer.readLine();
             String x=verticesbuffer.readLine();
             String y=verticesbuffer.readLine();
-            while(aeropuerto!=null&&x!=null&&y!=null){
-                grafo.agregarVertice(Integer.parseInt(x), Integer.parseInt(y), aeropuerto);
-                aeropuerto=verticesbuffer.readLine();
-                x=verticesbuffer.readLine();
-                y=verticesbuffer.readLine();
+            String index = verticesbuffer.readLine();
+            while(aeropuerto != null && x != null && y != null && index != null){
+                grafo.agregarVertice(Integer.parseInt(x), Integer.parseInt(y), aeropuerto, Integer.parseInt(index));
+                aeropuerto = verticesbuffer.readLine();
+                x = verticesbuffer.readLine();
+                y = verticesbuffer.readLine();
+                index = verticesbuffer.readLine();
+                
             }
             vertices.close();
 
