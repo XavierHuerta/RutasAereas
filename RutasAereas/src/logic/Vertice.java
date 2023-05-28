@@ -48,7 +48,7 @@ public class Vertice extends JLabel{
         
     }
     public Vertice(int x, int y, String nombre, int index){
-        bandera = new ImageIcon("RutasAereas/src/images/marca1.png");
+        bandera = new ImageIcon("src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
         nLugar = index;
