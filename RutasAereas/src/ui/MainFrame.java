@@ -18,7 +18,6 @@ import javax.swing.border.LineBorder;
 import java.io.*;
 
 import logic.Grafo;
-import logic.ManejoArchivos;
 import logic.Vertice;
 import logic.aeropuertos;
 
