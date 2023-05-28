@@ -18,8 +18,10 @@ import javax.swing.border.LineBorder;
 import java.io.*;
 
 import logic.Grafo;
+import logic.ManejoArchivos;
 import logic.Vertice;
 import logic.aeropuertos;
+
 
 public class MainFrame extends JFrame{
     
@@ -83,6 +85,7 @@ public class MainFrame extends JFrame{
         private Grafo grafo;//Grafo con los destinos
 
         public MapaPanel(){
+            
             grafo = aeropuertos.nuevografo();
 
             for(Vertice a : grafo.getVertices()){
