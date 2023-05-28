@@ -1,19 +1,23 @@
-package ui;
 
+package ui;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import javax.swing.text.html.StyleSheet.ListPainter;
 
 import java.io.*;
 
@@ -23,6 +27,8 @@ import logic.aeropuertos;
 
 
 public class MainFrame extends JFrame{
+    private JComboBox<String> listaPais;
+    private JComboBox<String> listaCiudad;
     
     public MainFrame(){
         initComponents();
@@ -36,7 +42,7 @@ public class MainFrame extends JFrame{
 
         //Propiedades del Panel Info
         panelInfo = new JPanel();
-        panelInfo.setLayout(new FlowLayout());
+        panelInfo.setLayout(null);
         panelInfo.setBackground(Color.white);
         panelInfo.setSize(250, 560);
         panelInfo.setLocation(1000,0);
@@ -53,10 +59,38 @@ public class MainFrame extends JFrame{
         
         JButton boton = new JButton("Haz clic");
         // boton.setBounds(50, 50, 100, 30);
+
         
+        
+        listaPais = new JComboBox<>();
+        
+        listaPais.addItem("Alemania");
+        listaPais.addItem("Canada");
+        listaPais.addItem("España");
+        listaPais.addItem("Estados Unidos");
+        listaPais.addItem("Francia");
+        listaPais.addItem("Italia");
+        listaPais.addItem("Mexico");
+        listaPais.addItem("Reino Unido");
+        listaPais.setSelectedIndex(0);
+        
+        
+        listaPais.setBounds(25, 150, 200, 40);
+        
+        listaCiudad = new JComboBox<>();
+        listaCiudad.setBounds(25, 250, 200, 40);
 
-        panelInfo.add(boton);
+        panelInfo.add(listaPais);
+        listaCiudad.addItem("Berlin");
+        listaPais.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actualizarListaCiudad();
+            }
+        });
 
+       // panelInfo.add(boton);  
+        panelInfo.add(listaCiudad);
         
         
         //Adicion de los paneles al JFrame
@@ -72,10 +106,37 @@ public class MainFrame extends JFrame{
 
     /*Elementos del panel Info */
     
-
+    // Método para actualizar los elementos de listaCiudad en función de la selección en listaPais
+    private void actualizarListaCiudad() {
+        String paisSeleccionado = (String) listaPais.getSelectedItem();
+        
+        listaCiudad.removeAllItems();
+        if (paisSeleccionado.equals("Alemania")) {
+            listaCiudad.addItem("Berlin");
+        } else if (paisSeleccionado.equals("Canada")) {
+            listaCiudad.addItem("Toronto");
+            listaCiudad.addItem("Vancouver");
+        } else if (paisSeleccionado.equals("España")) {
+            listaCiudad.addItem("Barcelona");
+            listaCiudad.addItem("Sevilla");
+        }else if (paisSeleccionado.equals("Estados Unidos")) {
+            listaCiudad.addItem("Los Angeles");
+            listaCiudad.addItem("Miami");
+            listaCiudad.addItem("Nueva York");
+        }else if(paisSeleccionado.equals("Francia")){
+            listaCiudad.addItem("Paris");
+        }else if(paisSeleccionado.equals("Italia")){
+            listaCiudad.addItem("Venecia");
+        }else if (paisSeleccionado.equals("Mexico")) {
+            listaCiudad.addItem("Ciudad de Mexico");
+            listaCiudad.addItem("Cancun");
+            listaCiudad.addItem("Monterrey");
+        }else if(paisSeleccionado.equals("Reino Unido")){
+            listaCiudad.addItem("Inglaterra");
+        }
+            
+    }
     
-    
-
     /*CLASES INTERNAS -------------------------------------------------------------------------------- */
 
     //Clase para hacer el panel con fondo de mapa
@@ -93,14 +154,14 @@ public class MainFrame extends JFrame{
                     public void mouseEntered(MouseEvent evt){
                         a.setSize(32, 32);
                         a.setLocation(a.getX() - 4, a.getY() - 8);
-                        a.setIcon(new ImageIcon("src/images/marca2.png"));
+                        a.setIcon(new ImageIcon("RutasAereas/src/images/marca2.png"));
                         a.getWin().setVisible(true);
                     }
                     @Override
                     public void mouseExited(MouseEvent evt){
                         a.setSize(24, 24);
                         a.setLocation(a.getX() + 4, a.getY() + 8);
-                        a.setIcon(new ImageIcon("src/images/marca1.png"));
+                        a.setIcon(new ImageIcon("RutasAereas/src/images/marca1.png"));
                         a.getWin().setVisible(false);
                     }
                 });
