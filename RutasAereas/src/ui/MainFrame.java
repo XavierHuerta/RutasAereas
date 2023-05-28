@@ -15,7 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 import logic.Grafo;
+import logic.ManejoArchivos;
 import logic.Vertice;
+
 
 public class MainFrame extends JFrame{
     
@@ -78,6 +80,8 @@ public class MainFrame extends JFrame{
         private Grafo grafo;//Grafo con los destinos
 
         public MapaPanel(){
+            ManejoArchivos.crearArcivho("src/archivos/Infovertices.txt");
+            
 
             /*Creacion de las etiquetas destino */
             grafo = new Grafo();
