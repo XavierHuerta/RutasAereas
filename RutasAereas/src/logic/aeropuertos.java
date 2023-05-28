@@ -11,7 +11,7 @@ public class aeropuertos {
             
             FileReader vertices= new FileReader("RutasAereas/src/infografo/vertices.txt");
             FileReader aristas= new FileReader("RutasAereas/src/infografo/aristas.txt");
-            
+            //prueba
             BufferedReader verticesbuffer = new BufferedReader(vertices);
             BufferedReader aristasbuffer = new BufferedReader(aristas);
             String aeropuerto=verticesbuffer.readLine();
