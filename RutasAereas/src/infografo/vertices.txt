@@ -1,15 +1,45 @@
 París
+780
+280
 Venecia
+825
+300
 Toronto
+400
+313
 Londres
+760
+260
 Los Angeles
+220
+370
 Berlin
+825
+260
 Barcelona
-New York
+775
+325
+Nueva York
+423
+333
 Miami
+394
+415
 Monterrey
+300
+420
 Vancouver
-Ciuduad de México
+200
+285
+Ciudad de México
+310
+455
 Cancún
+360
+440
 El Caíro
+905
+395
 Sevilla
+735
+350

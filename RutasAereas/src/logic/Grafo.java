@@ -310,4 +310,7 @@ public class Grafo {
     public ArrayList<Arista> getRecorridoAristas(){
         return this.recorridoAristas;
     }
+    public Vertice buscaVertice(int index){
+        return vertices.get(index);
+    }
 } // Fin clase

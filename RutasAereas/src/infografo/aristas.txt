@@ -1,0 +1,75 @@
+Toronto
+París
+25127
+Barcelona
+París
+10840
+Vancouver
+Toronto
+10727
+Ciudad de México
+Toronto
+16158
+Nueva York
+Londres
+15475
+Ciudad de México
+Londres
+20626
+Ciudad de México
+Los Angeles
+4171
+Berlin
+Londres
+3164
+Sevilla
+Berlin
+4171
+Ciudad de México
+Nueva York
+5227
+París
+Venecia
+4537
+Venecia
+Berlin
+5227
+Ciudad de México
+Nueva York
+5179
+Ciudad de México
+Nueva York
+7619
+Berlin
+Barcelona
+4504
+Los Angeles
+Miami
+3097
+Ciudad de México
+Miami
+5190
+Monterrey
+Miami
+6994
+Ciudad de México
+Monterrey
+862
+Ciudad de México
+Cancún
+1906
+Cancún
+Monterrey
+1526
+Ciudad de México
+Vancouver
+9929
+Los Angeles
+Vancouver
+9810
+Ciudad de México
+Vancouver
+14817
+Londres
+París
+1564
