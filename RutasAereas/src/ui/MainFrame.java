@@ -216,7 +216,7 @@ public class MainFrame extends JFrame{
             btnBuscar.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e){
-
+                    
                 }
             });
 
