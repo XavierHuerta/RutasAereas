@@ -1,6 +1,8 @@
 package ui;
 
 
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,6 +13,7 @@ public class Win extends JFrame {
     private Vertice v;
     private JPanel pan;
     private JLabel name;
+    private JLabel [] galeria;
 
     public Win( Vertice v){
         this.v = v;
@@ -24,16 +27,21 @@ public class Win extends JFrame {
     private void initComponents() {
         pan = new JPanel();
         pan.setSize(200, 300);
-        //pan.setBackground(Color.DARK_GRAY);
         pan.setVisible(true);
 
         //Etiqueta con nombre de la ciudad
-        name = new JLabel("aqui");
+        name = new JLabel();
         name.setText(v.getNombre());
         
-        //name.setForeground(Color.BLACK);
+        galeria = new JLabel [4];
 
         pan.add(name);
         add(pan);
+    }
+
+    public void mostrarImagen(){
+        if(v.getNombre().equals("París")){
+
+        }
     }
 }

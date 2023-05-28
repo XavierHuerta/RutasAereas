@@ -23,6 +23,7 @@ public class Vertice extends JLabel{
     public static int nVertices = 1;  //contador  de vertices creados
     //Diametro Constante
 	private final static int dimencion = 24;
+    private static int nLugar;
     //Centro
     private Point2D origen;
     private Point correccion;
