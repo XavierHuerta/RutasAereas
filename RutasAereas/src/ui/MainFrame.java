@@ -105,6 +105,7 @@ public class MainFrame extends JFrame{
                     }
                 });
 
+                
                 //Añade el vertice label al grafo
                 add(a);
             }
