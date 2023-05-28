@@ -3,12 +3,15 @@ package ui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.util.ArrayList;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 import logic.Vertice;
 
@@ -17,8 +20,11 @@ public class Win extends JFrame {
     private JPanel pan;
     private JPanel fotos;
     private JLabel name;
-    private JLabel [] galeria;
+    private JLabel clima;
+    private JLabel galeria;
     private JLabel visa;
+    private JTextArea atracciones;
+    private JLabel costo;
 
     public Win( Vertice v){
         this.v = v;
@@ -44,26 +50,123 @@ public class Win extends JFrame {
         name.setAlignmentX(CENTER_ALIGNMENT);
         name.setText(v.getNombre());
         
-        galeria = new JLabel [4];
 
         fotos = new JPanel();
-        fotos.setBackground(Color.GREEN);
-        fotos.setBounds(50, 50, 100, 100);
+        //fotos.setBackground(Color.GREEN);
+        mostrarImagen();
+        fotos.setBounds(40, 40, 120, 120);
 
-        visa = new JLabel(new ImageIcon("src/images/visa16.png"));
+        atracciones = new JTextArea();
+        atracciones.setSize(180, 80);
+        atracciones.setLocation(0, 160);
+        atracciones.setEditable(false);
+        atracciones.setText("Hola\nMundo\nComo\nDicen\nEstar?");
+
+        costo = new JLabel();
+        costo.setSize(200, 20);
+        costo.setLocation(0, 275);
+        costo.setText("Costo promedio: Alto");
+
+        clima= new JLabel();
+        clima.setSize(200, 20);
+        clima.setLocation(0, 250);
+        clima.setText("Tipo de clima: calido");
+
+
+
+        visa = new JLabel(new ImageIcon("RutasAereas/src/images/visa16.png"));
         visa.setLocation(166, 266);
         visa.setSize(24, 24);
         
 
         pan.add(name);
         pan.add(fotos);
+        pan.add(atracciones);
+        pan.add(clima);
+        pan.add(costo);
         pan.add(visa);
         add(pan);
     }
 
     public void mostrarImagen(){
-        if(v.getNombre().equals("París")){
-
+        int m = v.getnLugar();
+        galeria= new JLabel();
+        galeria.setSize(99, 99);
+        ImageIcon imagen;
+        Icon icon;
+        switch(m){
+            case 0:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 1:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 2:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 3:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 4:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 5:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 6:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 7:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 8:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 9:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 10:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 11:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 12:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 13:
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;            
         }
+        galeria.setLocation(0, 0);;
+        fotos.add(galeria);
     }
 }
