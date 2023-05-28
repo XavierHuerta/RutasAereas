@@ -54,7 +54,7 @@ public class Arista {
 
         float[] dashPattern = {5, 5};
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setStroke(new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1, dashPattern, 0));
+        //g2d.setStroke(new BasicStroke(3, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1, dashPattern, 0));
         g2d.draw(curva);
 
     }
