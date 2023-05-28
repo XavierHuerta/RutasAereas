@@ -31,6 +31,7 @@ import logic.aeropuertos;
 public class MainFrame extends JFrame{
     private JComboBox<String> listaPais;
     private JComboBox<String> listaCiudad;
+    private JLabel paisO, ciudadO;
     
     public MainFrame(){
         initComponents();
@@ -62,10 +63,13 @@ public class MainFrame extends JFrame{
         JButton boton = new JButton("Haz clic");
         // boton.setBounds(50, 50, 100, 30);
 
-        
-        
+        //Pais
+        //etiqueta de origen
+        paisO= new JLabel("Pais de origen:");
+        paisO.setBounds(25, 50, 100, 40);
+  
+        //Lista desplegada de origen
         listaPais = new JComboBox<>();
-        
         listaPais.addItem("Alemania");
         listaPais.addItem("Canada");
         listaPais.addItem("España");
@@ -74,16 +78,18 @@ public class MainFrame extends JFrame{
         listaPais.addItem("Italia");
         listaPais.addItem("Mexico");
         listaPais.addItem("Reino Unido");
-        listaPais.setSelectedIndex(0);
+        listaPais.setSelectedIndex(0);      
+        listaPais.setBounds(25, 80, 200, 40);
         
-        
-        listaPais.setBounds(25, 150, 200, 40);
-        
-        listaCiudad = new JComboBox<>();
-        listaCiudad.setBounds(25, 250, 200, 40);
+        //Ciudad
+        ciudadO= new JLabel("Ciudad de origen:");//Etiqueta
+        ciudadO.setBounds(25, 120, 100, 40);
 
-        panelInfo.add(listaPais);
-        listaCiudad.addItem("Berlin");
+        listaCiudad = new JComboBox<>();//Lista desplegada
+        listaCiudad.setBounds(25, 150, 200, 40);
+
+        listaCiudad.addItem("Berlin");//Ciudad por default ya que Alemania es el pais por default
+        //Muestra lista de ciudades de acuerdo al pais seleccionado
         listaPais.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,11 +97,14 @@ public class MainFrame extends JFrame{
             }
         });
 
-        // panelInfo.add(boton);  
+        //Boton buscar para dijsktra 
         btnBuscar = new BtnBuscar();
         btnBuscar.setLocation(40, 400);
 
-
+        //Agrega etiquetas, lista desplegada y boton buscar al panel
+        panelInfo.add(paisO);
+        panelInfo.add(listaPais);
+        panelInfo.add(ciudadO);
         panelInfo.add(listaCiudad);
         panelInfo.add(btnBuscar);
         
