@@ -50,7 +50,7 @@ public class MainFrame extends JFrame{
         panelMapa.setVisible(true);
 
         
-        
+        /*Elementos del panel Info */
         JButton boton = new JButton("Haz clic");
         // boton.setBounds(50, 50, 100, 30);
         
@@ -70,7 +70,7 @@ public class MainFrame extends JFrame{
     private JPanel panelMapa;
     private JFrame error;
 
-    /*Elementos del panel Info */
+
     
 
     
