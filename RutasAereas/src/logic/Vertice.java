@@ -53,7 +53,7 @@ public class Vertice extends JLabel{
         //centro = new Point2D.Double(x, y);
         //Correccion de origen
         correccion = new Point(getLocation().x + 12, getLocation().y + 23);
-        System.out.println(correccion.toString());
+
         origen = correccion;
         this.nombre = nombre;
         mostrarVentana();
