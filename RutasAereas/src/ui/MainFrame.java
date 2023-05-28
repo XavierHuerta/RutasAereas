@@ -7,10 +7,12 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -127,6 +129,30 @@ public class MainFrame extends JFrame{
             Graphics2D g2 = (Graphics2D)g; 
             //setBackground(Color.darkGray);
             grafo.dibujar(g2);
+        }
+    }
+
+
+    /* Clase para el boton buscar */
+    public class BtnBuscar extends JPanel{
+        private JLabel btnBuscar;
+
+        public BtnBuscar(){
+            setBounds(10, 10, 50, 30);
+            setBackground(Color.CYAN);
+            setVisible(true);
+
+            btnBuscar = new JLabel("Buscar");
+            btnBuscar.setSize(40,10);
+            btnBuscar.setHorizontalTextPosition((int)MainFrame.CENTER_ALIGNMENT);
+            btnBuscar.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e){
+
+                }
+            });
+
+            add(btnBuscar);
         }
     }
 
