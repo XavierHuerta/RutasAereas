@@ -16,7 +16,7 @@ public class Win extends JFrame {
         this.v = v;
         setSize(200, 300);
         setUndecorated(true);
-        setLocationRelativeTo(rootPane);
+        setLocationRelativeTo(v);
         initComponents();
     
     }

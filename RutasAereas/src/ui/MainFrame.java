@@ -102,6 +102,7 @@ public class MainFrame extends JFrame{
             //System.out.println(grafo.buscarVi("Venecia").getOrigen().toString());
             grafo.agregarArista(grafo.buscarVi("Paris").getOrigen(), grafo.buscarVi("Venecia").getOrigen(), 10);
             grafo.agregarArista(grafo.buscarVi("Monterrey").getOrigen(), grafo.buscarVi("Miami").getOrigen(), 10);
+            grafo.agregarArista(grafo.buscarVi("Toronto").getOrigen(), grafo.buscarVi("Miami").getOrigen(), 10);
 
             //adicion de los marcadores al panelMapa
             for(Vertice a : grafo.getVertices()){
