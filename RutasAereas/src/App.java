@@ -5,9 +5,9 @@ import ui.MainFrame;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        ImageIcon icon = new ImageIcon("RutasAereas/src/images/Logo.jpg");
+        ImageIcon icon = new ImageIcon("src/images/icon.jpg");
         MainFrame mFrame = new MainFrame();
-        mFrame.setSize(1250, 575);
+        mFrame.setSize(1350, 575);
         mFrame.setIconImage(icon.getImage());
         mFrame.setLocationRelativeTo(null);
         mFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

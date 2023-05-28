@@ -1,7 +1,6 @@
 
 package ui;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -9,19 +8,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import javax.swing.text.html.StyleSheet.ListPainter;
 
-import java.io.*;
 
 import logic.Grafo;
 import logic.Vertice;
@@ -29,12 +23,18 @@ import logic.aeropuertos;
 
 
 public class MainFrame extends JFrame{
+    private JPanel panelInfo;
+    private JPanel panelMapa;
+    private JFrame error;
+    private JPanel btnBuscar;
+    private JLabel Logo1;
     private JComboBox<String> listaPais;
     private JComboBox<String> listaCiudad;
     private JLabel paisO, ciudadO;
     
     public MainFrame(){
         initComponents();
+        //setBackground(Color.decode("#2482B5"));
         setBackground(Color.decode("#2482B5"));
     }
 
@@ -47,7 +47,7 @@ public class MainFrame extends JFrame{
         panelInfo = new JPanel();
         panelInfo.setLayout(null);
         panelInfo.setBackground(Color.white);
-        panelInfo.setSize(250, 560);
+        panelInfo.setSize(350, 560);
         panelInfo.setLocation(1000,0);
         panelInfo.setVisible(true);
 
@@ -60,12 +60,19 @@ public class MainFrame extends JFrame{
 
         
         /*Elementos del panel Info */
-        JButton boton = new JButton("Haz clic");
-        // boton.setBounds(50, 50, 100, 30);
+        //Logo Aeromexico
+        Logo1 = new JLabel();
+        Logo1.setBounds(20, 20, 227, 40);
+        ImageIcon logo = new ImageIcon("src/images/Logo.png");
+        Image imag = logo.getImage();
+        Image scalImag = imag.getScaledInstance(Logo1.getWidth(), Logo1.getHeight(), Image.SCALE_SMOOTH);
+        Logo1.setIcon(new ImageIcon(scalImag));
+        
 
         //Pais
         //etiqueta de origen
         paisO= new JLabel("Pais de origen:");
+        paisO.setForeground(Color.decode("#0B2343"));
         paisO.setBounds(25, 50, 100, 40);
   
         //Lista desplegada de origen
@@ -79,14 +86,15 @@ public class MainFrame extends JFrame{
         listaPais.addItem("Mexico");
         listaPais.addItem("Reino Unido");
         listaPais.setSelectedIndex(0);      
-        listaPais.setBounds(25, 80, 200, 40);
+        listaPais.setBounds(25, 80, 290, 40);
         
         //Ciudad
         ciudadO= new JLabel("Ciudad de origen:");//Etiqueta
-        ciudadO.setBounds(25, 120, 100, 40);
+        ciudadO.setForeground(Color.white);
+        ciudadO.setBounds(25, 120, 290, 40);
 
         listaCiudad = new JComboBox<>();//Lista desplegada
-        listaCiudad.setBounds(25, 150, 200, 40);
+        listaCiudad.setBounds(25, 150, 290, 40);
 
         listaCiudad.addItem("Berlin");//Ciudad por default ya que Alemania es el pais por default
         //Muestra lista de ciudades de acuerdo al pais seleccionado
@@ -102,6 +110,7 @@ public class MainFrame extends JFrame{
         btnBuscar.setLocation(40, 400);
 
         //Agrega etiquetas, lista desplegada y boton buscar al panel
+        panelInfo.add(Logo1);
         panelInfo.add(paisO);
         panelInfo.add(listaPais);
         panelInfo.add(ciudadO);
@@ -116,14 +125,15 @@ public class MainFrame extends JFrame{
 
     /*Elementos del Panel Mapa */
     //private Content contentPane;
-    private JPanel panelInfo;
-    private JPanel panelMapa;
-    private JFrame error;
-    private JPanel btnBuscar;
-
-
     
-    // Método para actualizar los elementos de listaCiudad en función de la selección en listaPais
+
+    /*Metodos Varios <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+    
+    /* 
+    ** Método para actualizar los elementos de 
+    ** listaCiudad en función de la selección 
+    ** en listaPais 
+    */
     private void actualizarListaCiudad() {
         String paisSeleccionado = (String) listaPais.getSelectedItem();
         
@@ -154,6 +164,7 @@ public class MainFrame extends JFrame{
             
     }
     
+
     /*CLASES INTERNAS -------------------------------------------------------------------------------- */
 
     //Clase para hacer el panel con fondo de mapa
@@ -210,7 +221,7 @@ public class MainFrame extends JFrame{
     }
 
 
-    /* Clase para el boton buscar */
+    /* Clase para el boton buscar  ----------------------------------------------------------------------------------------*/
     public class BtnBuscar extends JPanel{
         private JLabel btnBuscar;
 
