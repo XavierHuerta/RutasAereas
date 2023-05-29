@@ -23,6 +23,7 @@ public class Grafo {
         this.orden = orden;
         vertices = new ArrayList<> ();
         recorrido = new ArrayList<>();
+        recorridoAristas = new ArrayList<>();
         M = new Arista[orden][orden];
     }
 
@@ -55,11 +56,11 @@ public class Grafo {
 
         
         for(Vertice v: vertices){
-            if(v.getOrigen() == po){
+            if(v.getOrigen().equals(po)){
                 po = v.getOrigen();
                 x = vertices.indexOf(v);
             }
-            else if (v.getOrigen() == pd){
+            else if (v.getOrigen().equals(pd)){
                 pd = v.getOrigen();
                 y = vertices.indexOf(v);
             }
@@ -97,7 +98,7 @@ public class Grafo {
             for(int j = 0; j < orden; j++){
                 if(M[i][j] != null){
                     //M[i][j].dibujar(g2);
-                    M[i][j].pintar(g2);
+                    //M[i][j].pintar(g2);
                 }
             }
         }
@@ -277,11 +278,15 @@ public class Grafo {
                         if(vk.getDv() == 0 && vk.getPv() == null){
                             vk.setDv((int) (vi.getDv() + M[vertices.indexOf(vi)][i].getPeso()));
                             vk.setPv(vi);
+                            // Guardamos la arista en el recorrido de aristas
+                            //recorridoAristas.add(M[vertices.indexOf(vi)][i]);
                         }
                         else if(vi.getDv() + M[vertices.indexOf(vi)][i].getPeso() < vk.getDv()){
                             //si si actualizamos el costo y el vertice proveniente
                             vk.setDv((int) (vi.getDv() + M[vertices.indexOf(vi)][i].getPeso()));
                             vk.setPv(vi);
+                            // Guardamos la arista en el recorrido de aristas
+                            //recorridoAristas.add(M[vertices.indexOf(vi)][i]);
                         }
                     }
                 }
@@ -291,6 +296,34 @@ public class Grafo {
                 break;
             }
         }
+
+        //Recorrido de los vértices del camino obtenido
+        Vertice v = buscarVf();
+        recorridoAristas = new ArrayList<>();
+
+        while (v.getPv() != null) {
+            Vertice pv = v.getPv();
+            Arista arista = new Arista(pv.getOrigen(), v.getOrigen());
+            recorridoAristas.add(arista);
+            v = pv;
+        }
+
+        // Lógica para pintar las aristas del recorrido
+        // for (Arista arista : recorridoAristas) {
+        //     arista.pintar(graphics2D); // Asegúrate de tener una referencia al contexto gráfico (graphics2D) necesario para pintar las aristas
+        // }
+        
+    }
+
+    public Vertice buscarVf() {
+
+        for (Vertice vertice : vertices) {
+            if (vertice.getNombre().equals(vertices.get(vertices.size() - 1).getNombre())) { // Reemplaza "vf" por el nombre del vértice final
+                return vertice;
+            }
+        }
+    
+        return null; // Si no se encuentra el vértice final, se retorna null
     }
 
     public void dijkstra(String nombre_vi, String nombre_vf){
@@ -305,13 +338,18 @@ public class Grafo {
         
         do{
             aux_2 = aux_1.getPv();
-            for (Vertice vertice : vertices) {
-                if(vertice == aux_2){
-                    pila.push(vertice);
-                    //vertice = vertices.get(0);
-                    aux_1 = vertice;
-                    break;
+            if(aux_2 != null){
+                for (Vertice vertice : vertices) {
+                    if(vertice == aux_2){
+                        pila.push(vertice);
+                        //vertice = vertices.get(0);
+                        aux_1 = vertice;
+                        break;
+                    }
                 }
+            }
+            else{
+                pila.clear();
             }
         }while(aux_2 != vi);
         //pila.push(vi);

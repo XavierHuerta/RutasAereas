@@ -11,7 +11,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -146,11 +145,14 @@ public class MainFrame extends JFrame{
                 
                 String nombre_vf = listaD.getSelectedItem().toString();
                 System.out.println(nombre_vf);
+
                 System.out.println();
                 grafo.mostrarMatrizSimple();
                 System.out.println();
 
                 grafo.dijkstra(nombre_vi, nombre_vf);
+                panelMapa.repaint();
+                
                 System.out.println(grafo.mostrarRecorrido());;
             }
         });
