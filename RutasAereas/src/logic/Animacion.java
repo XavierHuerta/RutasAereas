@@ -12,7 +12,10 @@ public class Animacion extends JLabel{
     private Timer timer;
     private double t;
     
-    public Animacion( QuadCurve2D curve){
+    public Animacion( ){
+    }
+
+    public void runAnimación(QuadCurve2D curve){
         setIcon(new ImageIcon("src/images/avionIzq.png"));
         setSize(24, 24);
 
