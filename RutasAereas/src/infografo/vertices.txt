@@ -4,7 +4,7 @@ Paris
 0
 1
 frio
-torre iffel,no se
+Torre Eiffel,Arco del triunfo,Museo del Louvre, Catedral de Notre Dame
 Alto
 Venecia
 825
@@ -12,7 +12,7 @@ Venecia
 1
 0
 templado/frio
-aguita supongo
+Palacio Ducal,Gran canal,Basílica de San Marcos,Laguna de Venecia
 Medio
 Toronto
 400
@@ -20,7 +20,7 @@ Toronto
 2
 1
 muy frio
-nieve?
+Museo Real de Ontario,Acuario de Ripley,Galería de Arte Ontario,High park
 Medio
 Londres
 760
@@ -28,7 +28,7 @@ Londres
 3
 0
 frio
-ni idea, un puente
+Mirador The Shard,Castillo de Windsor,Palacio de Kensington,Puente de londres
 Alto
 Los Angeles
 220
@@ -36,7 +36,7 @@ Los Angeles
 4
 1
 calido
-hollywood,homeless
+Hollywood,Beverly Hills,Warner Bros Studio,Centro Getty
 Alto
 Berlin
 825
@@ -44,7 +44,7 @@ Berlin
 5
 1
 frio
-bigote anti democracia
+Orquesta de Berlín, Monumento conmemorativo de Sachsenhausen,Puerta de Brandeburgo,Memorial del mundo de Berlín
 Medio
 Barcelona
 775
@@ -52,7 +52,7 @@ Barcelona
 6
 0
 calido
-toros
+Casa Batlló-Gold, Monasterio de Monserrat,La sagrada familia,Camp Nou
 Medio
 Nueva York
 423
@@ -60,7 +60,7 @@ Nueva York
 7
 1
 frio
-capitalismo,delincuencia,vapor del piso
+Mirador del Empire State, Monumento nacional al 11-s,Observatorio one world,Estatua de la libertad
 Muy Alto
 Miami
 394
@@ -68,7 +68,7 @@ Miami
 8
 1
 calido
-playas,surf
+Galería de arte superblue,Bahía Vizcaína,Star Islan,Miami Seaquarium
 Alto
 Monterrey
 300
@@ -76,7 +76,7 @@ Monterrey
 9
 0
 calido
-montaña,no hay agua
+Nido de los Aguiluchos,Cañón de la Huasteca,Cascadas cola de caballo,Grutas de García
 Medio
 Vancouver
 200
@@ -84,7 +84,7 @@ Vancouver
 10
 1
 frio
-mas nieve
+Grouse Montain,Teleférico Sea to Sky,Puente colgante de Capilano,Parque Stanley
 Medio
 Ciudad de Mexico
 310
@@ -92,7 +92,7 @@ Ciudad de Mexico
 11
 0
 templado/calido
-cafeterias maid,polanco,bellas artes,castillo de chapultepect
+Templo mayor,Xochimilco, Teotihuacán,Castillo de Chapultepec
 Bajo
 Cancun
 360
@@ -100,21 +100,13 @@ Cancun
 12
 0
 calido
-playa,capitalismo,aguita
+Coco bongo,Islas mujeres,Playa de los delfines,Tulun
 Medio
-El Cairo
-905
-395
-13
-0
-no se alc
-tampoco se alc
-No se
 Sevilla
 735
 350
 14
 0
-no se alc
-tampoco se alc
+calido
+Catedral de Sevilla,El Alcázar,la Giralda,La casa de la memoria
 Medio

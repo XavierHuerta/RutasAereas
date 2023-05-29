@@ -90,9 +90,11 @@ public class Vertice extends JLabel{
     }
 
     /* Metodos de Acceso --------------------------------------- */
+    
     public String getNombre(){
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

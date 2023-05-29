@@ -33,16 +33,16 @@ public class Win extends JFrame {
         //Determina la posicion
         //esquina superior Izq
         if((1000 - v.getLocation().getX() > v.getLocation().getX()) && (550 - v.getLocation().getY() > v.getLocation().getY())){
-            setLocation((int)v.getLocation().getX() + 100, (int)v.getLocation().getY() + 20);
+            setLocation((int)v.getLocation().getX() + 50, (int)v.getLocation().getY() + 20);
         }//esquina superior Der
         else if((1000 - v.getLocation().getX() < v.getLocation().getX()) && (550 - v.getLocation().getY() > v.getLocation().getY())){
-            setLocation((int)v.getLocation().getX() - 430, (int)v.getLocation().getY() - 50);
+            setLocation((int)v.getLocation().getX() - 600, (int)v.getLocation().getY() - 50);
         }//esquina inferior Izq
         else if((1000 - v.getLocation().getX() > v.getLocation().getX()) && (550 - v.getLocation().getY() < v.getLocation().getY())){
-            setLocation((int)v.getLocation().getX() + 150, (int)v.getLocation().getY() + 100);
+            setLocation((int)v.getLocation().getX() + 90, (int)v.getLocation().getY() - 150);
         }//esquina inferior Der
         else if((1000 - v.getLocation().getX() < v.getLocation().getX()) && (550 - v.getLocation().getY() < v.getLocation().getY())){
-            setLocation((int)v.getLocation().getX() - 450, (int)v.getLocation().getY() - 100);
+            setLocation((int)v.getLocation().getX() - 600, (int)v.getLocation().getY() - 100);
         }
         
         initComponents();
@@ -73,7 +73,7 @@ public class Win extends JFrame {
 
         atracciones = new JTextArea();
         atracciones.setSize(180, 80);
-        atracciones.setLocation(0, 160);
+        atracciones.setLocation(40, 200);
         atracciones.setEditable(false);
         String aux=v.getAtracciones();
         String aux2="";
@@ -88,22 +88,22 @@ public class Win extends JFrame {
 
         costo = new JLabel();
         costo.setSize(200, 20);
-        costo.setLocation(0, 275);
+        costo.setLocation(300, 40);
         costo.setText("Costo promedio: "+v.getCosto());
 
         clima= new JLabel();
         clima.setSize(200, 20);
-        clima.setLocation(0, 250);
+        clima.setLocation(300, 150);
         clima.setText("Tipo de clima: "+v.getClima());
 
 
 
         if(v.getVisa() == 1){
-            visa = new JLabel(new ImageIcon("RutasAereas/src/images/visa16.png"));
+            visa = new JLabel(new ImageIcon("RutasAereas/src/images/convisa.png"));
         } else {
-            visa = new JLabel(new ImageIcon("RutasAereas/src/images/visa24.png"));
+            visa = new JLabel(new ImageIcon("RutasAereas/src/images/sinvisa.jpg"));
         }
-        visa.setLocation(166, 266);
+        visa.setLocation(450, 266);
         visa.setSize(24, 24);
         
 
