@@ -30,8 +30,8 @@ public class MainFrame extends JFrame{
     private JPanel btnBuscar;
     private JLabel Logo1;
     private JComboBox<String> listaPais;
-    private JComboBox<String> listaCiudad;
-    private JLabel paisO, ciudadO;
+    private JComboBox<String> listaCiudad, listaD;
+    private JLabel paisO, ciudadO, ciudadD;
     
     public MainFrame(){
         initComponents();
@@ -73,8 +73,12 @@ public class MainFrame extends JFrame{
         //Pais
         //etiqueta de origen
         paisO= new JLabel("Pais de origen:");
+
         paisO.setForeground(Color.decode("#0B2343"));
         paisO.setBounds(25, 50, 100, 40);
+
+        paisO.setBounds(25, 50, 100, 30);
+
   
         //Lista desplegada de origen
         listaPais = new JComboBox<>();
@@ -106,8 +110,21 @@ public class MainFrame extends JFrame{
             }
         });
 
+        ciudadD= new JLabel("Ciudad destino:");
+        ciudadD.setBounds(25,210,100,40);
+        listaD=new JComboBox<>();
+        listaD.setBounds(25, 240, 100, 30);
+
+        listaD.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actualizarListaD();
+            }
+        });
+
+
         //Boton buscar para dijsktra 
-        btnBuscar = new BtnBuscar("Buscar", panelMapa);
+        btnBuscar = new BtnBuscar();
         btnBuscar.setBackground(Color.decode("#0B2343"));
         btnBuscar.setBounds(25, 400, 300, 30);
         
@@ -118,6 +135,8 @@ public class MainFrame extends JFrame{
         panelInfo.add(listaPais);
         panelInfo.add(ciudadO);
         panelInfo.add(listaCiudad);
+        panelInfo.add(ciudadD);
+        panelInfo.add(listaD);
         panelInfo.add(btnBuscar);
         
         
@@ -164,6 +183,15 @@ public class MainFrame extends JFrame{
         }else if(paisSeleccionado.equals("Reino Unido")){
             listaCiudad.addItem("Inglaterra");
         }
+            
+    }
+
+    // Método para actualizar los elementos de listaCiudad en función de la selección en listaPais
+    private void actualizarListaD() {
+        String ciudadSeleccionada = (String) listaCiudad.getSelectedItem();
+        
+        listaCiudad.removeAllItems();
+        
             
     }
     
@@ -233,22 +261,26 @@ public class MainFrame extends JFrame{
     public class BtnBuscar extends JPanel{
         private JLabel btnBuscar;
 
-        //Constructor
-        public BtnBuscar(String text, JPanel mapa){
-            btnBuscar = new JLabel(text);
-            btnBuscar.setSize(getWidth(),getHeight());
-            btnBuscar.setForeground(Color.white);
+        public BtnBuscar(){
+            setSize(100, 30);
+            setBackground(Color.CYAN);//CYAN
+            setVisible(true);
+
+            btnBuscar = new JLabel("Buscar");
+            btnBuscar.setSize(40,10);
             btnBuscar.setHorizontalTextPosition((int)MainFrame.CENTER_ALIGNMENT);
 
             btnBuscar.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e){
-                    SwingUtilities.invokeLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            new Animacion();
-                        }
-                    });
+                  //  String paisOrigen=(String) listaPais.getSelectedItem();
+                    String ciudadOrigen=(String) listaCiudad.getSelectedItem();
+
+                    Grafo grafo= aeropuertos.nuevografo();
+                    grafo.caminoCorto(ciudadOrigen);
+
+                    
+                    
                 }
             });
 

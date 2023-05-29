@@ -2,59 +2,119 @@ París
 780
 280
 0
+1
+frio
+torre iffel,no se
+Alto
 Venecia
 825
 300
 1
+0
+templado/frio
+aguita supongo
+Medio
 Toronto
 400
 313
 2
+1
+muy frio
+nieve?
+Medio
 Londres
 760
 260
 3
+0
+frio
+ni idea, un puente
+Alto
 Los Angeles
 220
 370
 4
+1
+calido
+hollywood,homeless
+Alto
 Berlin
 825
 260
 5
+1
+frio
+bigote anti democracia
+Medio
 Barcelona
 775
 325
 6
+0
+calido
+toros
+Medio
 Nueva York
 423
 333
-6
+7
+1
+frio
+capitalismo,delincuencia,vapor del piso
+Muy Alto
 Miami
 394
 415
-7
+8
+1
+calido
+playas,surf
+Alto
 Monterrey
 300
 420
-8
+9
+0
+calido
+montaña,no hay agua
+Medio
 Vancouver
 200
 285
-9
+10
+1
+frio
+mas nieve
+Medio
 Ciudad de México
 310
 450
-10
+11
+0
+templado/calido
+cafeterias maid,polanco,bellas artes,castillo de chapultepect
+Bajo
 Cancun
 360
 440
-11
+12
+0
+calido
+playa,capitalismo,aguita
+Medio
 El Caíro
 905
 395
-12
+13
+0
+no se alc
+tampoco se alc
+No se
 Sevilla
 735
 350
-13
+14
+0
+no se alc
+tampoco se alc
+Medio
