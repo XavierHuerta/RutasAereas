@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import logic.Animacion;
+import logic.Arista;
 import logic.Grafo;
 
 public class MainFrame extends JFrame{
@@ -28,9 +30,11 @@ public class MainFrame extends JFrame{
     private JPanel btn_Buscar;
     private JLabel btn_Label;
     private Grafo grafo;
+    private Animacion animacion;
     
     public MainFrame(Grafo grafo){  
         this.grafo = grafo;
+        animacion = new Animacion();
         initComponents();
         setBackground(Color.decode("#2482B5"));
     }
@@ -54,6 +58,8 @@ public class MainFrame extends JFrame{
         panelMapa.setBorder(new LineBorder(Color.DARK_GRAY));
         panelMapa.setSize(1000, 560);
         panelMapa.setVisible(true);
+
+        panelMapa.add(animacion);
         
         /*<<<<<<<<<<<<<<<<<<<< Elementos del panel Info >>>>>>>>>>>>>>>>>>>> */
 
@@ -153,6 +159,10 @@ public class MainFrame extends JFrame{
 
                 grafo.dijkstra(nombre_vi, nombre_vf);
                 panelMapa.repaint();
+
+                for (Arista a : grafo.getRecorridoAristas()) {
+                    animacion.runAnimación(a.getCurva());
+                }
                 
                 System.out.println(grafo.mostrarRecorrido());;
             }
