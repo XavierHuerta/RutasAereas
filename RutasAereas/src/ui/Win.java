@@ -27,19 +27,19 @@ public class Win extends JFrame {
 
     public Win( Vertice v){
         this.v = v;
-        setSize(300, 250);
+        setSize(500, 300);
         setUndecorated(true);
         
         //Determina la posicion
         //esquina superior Izq
         if((1000 - v.getLocation().getX() > v.getLocation().getX()) && (550 - v.getLocation().getY() > v.getLocation().getY())){
-            setLocation((int)v.getLocation().getX() + 20, (int)v.getLocation().getY() + 20);
+            setLocation((int)v.getLocation().getX() + 100, (int)v.getLocation().getY() + 20);
         }//esquina superior Der
         else if((1000 - v.getLocation().getX() < v.getLocation().getX()) && (550 - v.getLocation().getY() > v.getLocation().getY())){
             setLocation((int)v.getLocation().getX() - 430, (int)v.getLocation().getY() - 50);
         }//esquina inferior Izq
         else if((1000 - v.getLocation().getX() > v.getLocation().getX()) && (550 - v.getLocation().getY() < v.getLocation().getY())){
-            setLocation((int)v.getLocation().getX() + 100, (int)v.getLocation().getY() - 100);
+            setLocation((int)v.getLocation().getX() + 150, (int)v.getLocation().getY() - 100);
         }//esquina inferior Der
         else if((1000 - v.getLocation().getX() < v.getLocation().getX()) && (550 - v.getLocation().getY() < v.getLocation().getY())){
             setLocation((int)v.getLocation().getX() - 450, (int)v.getLocation().getY() - 100);
@@ -54,7 +54,7 @@ public class Win extends JFrame {
         pan = new JPanel();
         pan.setLayout(null);
         pan.setBackground(Color.white);
-        pan.setSize(200, 300);
+        pan.setSize(400, 300);
         pan.setVisible(true);
 
         //Etiqueta con nombre de la ciudad
