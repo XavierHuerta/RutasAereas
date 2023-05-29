@@ -11,8 +11,8 @@ public class aeropuertos {
         try {
             Grafo grafo = new Grafo(15);
             
-            FileReader vertices= new FileReader("src/infografo/vertices.txt");
-            FileReader aristas= new FileReader("src/infografo/aristas.txt");
+            FileReader vertices= new FileReader("RutasAereas/src/infografo/vertices.txt");
+            FileReader aristas= new FileReader("RutasAereas/src/infografo/aristas.txt");
             //prueba
             BufferedReader verticesbuffer = new BufferedReader(vertices);
             BufferedReader aristasbuffer = new BufferedReader(aristas);

@@ -110,11 +110,13 @@ public class Grafo {
 
 	}
 
-    public void dibujarAristas(Graphics2D g2d){
+    public void dibujar(Graphics2D graphics){
 		//Todo: pintar aristas
        for (Arista arista : recorridoAristas) {
             arista.pintar(g2d);
        }
+
+
 	}
 
     public void resetRecorrido(){
