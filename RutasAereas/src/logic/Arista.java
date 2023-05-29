@@ -22,7 +22,7 @@ public class Arista {
         //linea = new Line2D.Double(pi,pf);
         
     }
-    public Arista (Point2D pi, Point2D pf, double peso){
+    public Arista (Point2D pi, Point2D pf, int peso){
         this.peso = peso;
         this.pi = pi;
         this.pf = pf;

@@ -92,7 +92,7 @@ public class Grafo {
         return cad;
     }
 
-	public void dibujar(Graphics2D g2){
+	/*public void dibujar(Graphics2D g2){
 		//Todo: pintar aristas
         for(int i = 0; i < orden; i++){
             for(int j = 0; j < orden; j++){
@@ -108,12 +108,12 @@ public class Grafo {
         //     v.dibujar(g2);
         // }
 
-	}
+	}*/
 
     public void dibujar(Graphics2D graphics){
 		//Todo: pintar aristas
        for (Arista arista : recorridoAristas) {
-            arista.pintar(g2d);
+            arista.pintar(graphics);
        }
 
 

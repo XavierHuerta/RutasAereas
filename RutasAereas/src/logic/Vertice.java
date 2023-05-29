@@ -35,8 +35,7 @@ public class Vertice extends JLabel{
     private Win ventanita;
 
     /* CONSTRUCTORES ------------------------------------------------------------------*/
-    public Vertice(){
-    }
+    
     public Vertice(int x, int y){
         //this(x,y, "" + nVertices); //Se nombra al vertice por su número
         bandera = new ImageIcon("RutasAereas/src/images/marca1.png");
@@ -91,7 +90,7 @@ public class Vertice extends JLabel{
     }
 
     /* Metodos de Acceso --------------------------------------- */
-    public String getNombre() {
+    public String getNombre(){
         return nombre;
     }
     public void setNombre(String nombre) {

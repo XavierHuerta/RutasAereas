@@ -39,7 +39,7 @@ public class Win extends JFrame {
             setLocation((int)v.getLocation().getX() - 430, (int)v.getLocation().getY() - 50);
         }//esquina inferior Izq
         else if((1000 - v.getLocation().getX() > v.getLocation().getX()) && (550 - v.getLocation().getY() < v.getLocation().getY())){
-            setLocation((int)v.getLocation().getX() + 150, (int)v.getLocation().getY() - 100);
+            setLocation((int)v.getLocation().getX() + 150, (int)v.getLocation().getY() + 100);
         }//esquina inferior Der
         else if((1000 - v.getLocation().getX() < v.getLocation().getX()) && (550 - v.getLocation().getY() < v.getLocation().getY())){
             setLocation((int)v.getLocation().getX() - 450, (int)v.getLocation().getY() - 100);
@@ -199,7 +199,7 @@ public class Win extends JFrame {
                 galeria.setIcon(icon);
                 break;            
         }
-        galeria.setLocation(0, 0);;
+        galeria.setLocation(0, 0);
         fotos.add(galeria);
     }
 }

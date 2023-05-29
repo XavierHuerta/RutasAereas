@@ -62,7 +62,7 @@ public class MapaPanel extends JPanel{
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g; 
         //setBackground(Color.darkGray);
-        grafo.dibujarAristas(g2);
+        grafo.dibujar(g2);
     }
 
     public Grafo getGrafo(){
