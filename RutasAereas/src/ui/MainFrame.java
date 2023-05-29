@@ -64,7 +64,7 @@ public class MainFrame extends JFrame{
         //Logo Aeromexico
         Logo1 = new JLabel();
         Logo1.setBounds(20, 20, 227, 40);
-        ImageIcon logo = new ImageIcon("src/images/Logo.png");
+        ImageIcon logo = new ImageIcon("RutasAereas/src/images/Logo.png");
         Image imag = logo.getImage();
         Image scalImag = imag.getScaledInstance(Logo1.getWidth(), Logo1.getHeight(), Image.SCALE_SMOOTH);
         Logo1.setIcon(new ImageIcon(scalImag));
@@ -75,9 +75,9 @@ public class MainFrame extends JFrame{
         paisO= new JLabel("Pais de origen:");
 
         paisO.setForeground(Color.decode("#0B2343"));
-        paisO.setBounds(25, 50, 100, 40);
+        paisO.setBounds(25, 60, 100, 40);
 
-        paisO.setBounds(25, 50, 100, 30);
+        
 
   
         //Lista desplegada de origen
@@ -91,17 +91,17 @@ public class MainFrame extends JFrame{
         listaPais.addItem("Mexico");
         listaPais.addItem("Reino Unido");
         listaPais.setSelectedIndex(0);      
-        listaPais.setBounds(25, 80, 290, 40);
+        listaPais.setBounds(25, 90, 290, 40);
         
         //Ciudad
         ciudadO = new JLabel("Ciudad de origen:");//Etiqueta
         ciudadO.setForeground(Color.decode("#0B2343"));
-        ciudadO.setBounds(25, 120, 290, 40);
+        ciudadO.setBounds(25, 130, 290, 40);
 
         listaCiudad = new JComboBox<>();//Lista desplegada
-        listaCiudad.setBounds(25, 150, 290, 40);
+        listaCiudad.setBounds(25, 160, 290, 40);
 
-        listaCiudad.addItem("Berlin");//Ciudad por default ya que Alemania es el pais por default
+       // listaCiudad.addItem("Berlin");//Ciudad por default ya que Alemania es el pais por default
         //Muestra lista de ciudades de acuerdo al pais seleccionado
         listaPais.addActionListener(new ActionListener() {
             @Override
@@ -110,12 +110,12 @@ public class MainFrame extends JFrame{
             }
         });
 
-        ciudadD = new JLabel("Ciudad destino:");
-        ciudadD.setBounds(25,210,100,40);
-        listaD = new JComboBox<>();
-        listaD.setBounds(25, 240, 100, 30);
+        ciudadD= new JLabel("Ciudad destino:");
+        ciudadD.setBounds(25,200,100,40);
+        listaD=new JComboBox<>();
+        listaD.setBounds(25, 230, 150, 40);
 
-        listaD.addActionListener(new ActionListener() {
+        listaCiudad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 actualizarListaD();
@@ -125,9 +125,7 @@ public class MainFrame extends JFrame{
 
         //Boton buscar para dijsktra 
         btnBuscar = new BtnBuscar();
-        btnBuscar.setBackground(Color.decode("#0B2343"));
-        btnBuscar.setBounds(25, 400, 300, 30);
-        
+        btnBuscar.setLocation(180, 230);
 
         //Agrega etiquetas, lista desplegada y boton buscar al panel
         panelInfo.add(Logo1);
@@ -138,8 +136,7 @@ public class MainFrame extends JFrame{
         panelInfo.add(ciudadD);
         panelInfo.add(listaD);
         panelInfo.add(btnBuscar);
-        
-        
+
         //Adicion de los paneles al JFrame
         add(panelMapa);
         add(panelInfo);
@@ -186,11 +183,29 @@ public class MainFrame extends JFrame{
             
     }
 
-    // Método para actualizar los elementos de listaCiudad en función de la selección en listaPais
+    // Método para actualizar los elementos de listaD en función de la selección en listaCiudad
     private void actualizarListaD() {
         String ciudadSeleccionada = (String) listaCiudad.getSelectedItem();
+
+        listaD.removeAllItems();
         
-        listaCiudad.removeAllItems();
+        listaD.addItem("Barcelona");
+        listaD.addItem("Berlin");
+        listaD.addItem("Cancun");
+        listaD.addItem("Ciudad de Mexico");
+        listaD.addItem("Londres");
+        listaD.addItem("Los Angeles");
+        listaD.addItem("Miami");
+        listaD.addItem("Monterrey");
+        listaD.addItem("Nueva York");
+        listaD.addItem("Paris");
+        listaD.addItem("Sevilla");
+        listaD.addItem("Toronto");
+        listaD.addItem("Vancouver");
+        listaD.addItem("Venecia");
+        
+
+       listaD.removeItem(ciudadSeleccionada);
         
             
     }
@@ -248,7 +263,8 @@ public class MainFrame extends JFrame{
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D)g; 
             //setBackground(Color.darkGray);
-            grafo.dibujar(g2);
+            //grafo.dibujar(g2);
+            
         }
 
         public Grafo getGrafo(){
@@ -273,11 +289,38 @@ public class MainFrame extends JFrame{
             btnBuscar.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e){
-                  //  String paisOrigen=(String) listaPais.getSelectedItem();
                     String ciudadOrigen=(String) listaCiudad.getSelectedItem();
+                    System.out.println("xi"+ciudadOrigen);
+                    String ciudadDestino=(String) listaD.getSelectedItem();
 
                     Grafo grafo= aeropuertos.nuevografo();
                     grafo.caminoCorto(ciudadOrigen);
+
+
+                    
+                        
+                            grafo.getRecorrido().clear();
+                            grafo.resetRecorrido();
+        
+                            grafo.caminoCorto(ciudadOrigen);
+                            grafo.checar_dvpv();
+                            
+                            
+                            grafo.dijkstra(ciudadOrigen, ciudadDestino);
+
+                            panelMapa.repaint();                       
+                            
+                           // grafo.dibujar(g2);
+
+                            
+                            //recorrido_Dijkstra.setText(grafo.mostrarRecorrido());
+            
+                            //colorear();
+                            //colorearAristas();
+                        
+                    
+
+
 
                     
                     
