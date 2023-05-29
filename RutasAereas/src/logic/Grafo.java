@@ -91,7 +91,7 @@ public class Grafo {
         return cad;
     }
 
-	/*public void dibujar(Graphics2D g2){
+	public void dibujar(Graphics2D g2){
 		//Todo: pintar aristas
         for(int i = 0; i < orden; i++){
             for(int j = 0; j < orden; j++){
@@ -107,15 +107,13 @@ public class Grafo {
         //     v.dibujar(g2);
         // }
 
-	}*/
+	}
 
-    public void dibujar(Graphics2D graphics){
+    public void dibujarAristas(Graphics2D g2d){
 		//Todo: pintar aristas
        for (Arista arista : recorridoAristas) {
-            arista.pintar(graphics);
+            arista.pintar(g2d);
        }
-
-
 	}
 
     public void resetRecorrido(){
@@ -131,7 +129,9 @@ public class Grafo {
     // }
 
     /* RECORIDOS ----------------------------------------------------------------------------- */
-	public void DFS(String nombre_vi) {
+    
+	/* <<<<<<<<<<<<<<<<<<<<<<<<<<<< RECORRIDO POR PROFUNDIDAD >>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+    public void DFS(String nombre_vi) {
         Vertice v_aux = null;
 
         v_aux = buscarVi(nombre_vi);
@@ -150,7 +150,11 @@ public class Grafo {
         }
 	}
 
-    /* RECORRIDO POR ARNCHURA ------------------------------------------------------------ */
+    public void llenarRecorridoAristas(ArrayList <Vertice> recorrido){
+
+    }
+
+    /* <<<<<<<<<<<<<<<<<<<<<<<<<<<< RECORRIDO POR ARNCHURA >>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 	public void BFS(String nombre_vi) {
         Vertice v_aux = null;
         //Vertice inicial
@@ -176,7 +180,7 @@ public class Grafo {
         }
 	}
 
-    /*Camino mas corto  */
+    /* <<<<<<<<<<<<<<<<<<<<< BUSCAR EL CAMINO MAS CORTO DIJKSTRA >>>>>>>>>>>>>>>>>>>>> */
     public void caminoCorto(String nombre_vi){
         
         Vertice vk;

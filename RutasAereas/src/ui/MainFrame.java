@@ -14,10 +14,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 
-import logic.Animacion;
 import logic.Grafo;
 import logic.Vertice;
 import logic.aeropuertos;
@@ -263,7 +261,7 @@ public class MainFrame extends JFrame{
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D)g; 
             //setBackground(Color.darkGray);
-            //grafo.dibujar(g2);
+            grafo.dibujar(g2);
             
         }
 
@@ -293,7 +291,7 @@ public class MainFrame extends JFrame{
                     System.out.println("xi"+ciudadOrigen);
                     String ciudadDestino=(String) listaD.getSelectedItem();
 
-                    Grafo grafo= aeropuertos.nuevografo();
+                    Grafo grafo = aeropuertos.nuevografo();
                     grafo.caminoCorto(ciudadOrigen);
                     grafo.getRecorrido().clear();
                     grafo.resetRecorrido();
@@ -303,10 +301,9 @@ public class MainFrame extends JFrame{
                     
                     grafo.dijkstra(ciudadOrigen, ciudadDestino);
 
-                    //panelMapa.paintComponents(getGraphics());                       
-                    
-                    grafo.dibujar(getGraphics());
-
+                    //System.out.println(grafo.getRecorrido());
+                    // remove(panelMapa);
+                    // MapaPanel panelMapa = new MapaPanel();
                     
                     //recorrido_Dijkstra.setText(grafo.mostrarRecorrido());
     

@@ -2,9 +2,8 @@ package ui;
 
 
 import java.awt.Color;
-import java.awt.GridLayout;
+
 import java.awt.Image;
-import java.util.ArrayList;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -68,8 +67,8 @@ public class Win extends JFrame {
         
 
         fotos = new JPanel();
-        //fotos.setBackground(Color.GREEN);
-        mostrarImagen();
+        fotos.setBackground(Color.GREEN);
+        //mostrarImagen();
         fotos.setBounds(25, 40, 250, 150);
 
         atracciones = new JTextArea();
@@ -119,13 +118,13 @@ public class Win extends JFrame {
 
     public void mostrarImagen(){
         int m = v.getnLugar();
-        galeria= new JLabel();
-        galeria.setSize(99, 99);
+        galeria = new JLabel();
+        galeria.setSize(fotos.getWidth(), fotos.getHeight());
         ImageIcon imagen;
         Icon icon;
         switch(m){
             case 0:
-                imagen = new ImageIcon("src/images/paris.jpeg");
+                imagen = new ImageIcon("src/images/paris.jpg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
