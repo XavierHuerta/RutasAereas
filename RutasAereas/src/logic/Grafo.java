@@ -223,10 +223,6 @@ public class Grafo {
         }
 	}
 
-    public void llenarRecorridoAristas(ArrayList <Vertice> recorrido){
-
-    }
-
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<< RECORRIDO POR ARNCHURA >>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 	public void BFS(String nombre_vi) {
         Vertice v_aux = null;
@@ -298,32 +294,20 @@ public class Grafo {
         }
 
         //Recorrido de los vértices del camino obtenido
-        Vertice v = buscarVf();
-        recorridoAristas = new ArrayList<>();
+        //Vertice v = buscarVf();
 
-        while (v.getPv() != null) {
-            Vertice pv = v.getPv();
-            Arista arista = new Arista(pv.getOrigen(), v.getOrigen());
-            recorridoAristas.add(arista);
-            v = pv;
-        }
+        // while (v.getPv() != null) {
+        //     Vertice pv = v.getPv();
+        //     Arista arista = new Arista(pv.getOrigen(), v.getOrigen());
+        //     recorridoAristas.add(arista);
+        //     v = pv;
+        // }
 
         // Lógica para pintar las aristas del recorrido
         // for (Arista arista : recorridoAristas) {
         //     arista.pintar(graphics2D); // Asegúrate de tener una referencia al contexto gráfico (graphics2D) necesario para pintar las aristas
         // }
         
-    }
-
-    public Vertice buscarVf() {
-
-        for (Vertice vertice : vertices) {
-            if (vertice.getNombre().equals(vertices.get(vertices.size() - 1).getNombre())) { // Reemplaza "vf" por el nombre del vértice final
-                return vertice;
-            }
-        }
-    
-        return null; // Si no se encuentra el vértice final, se retorna null
     }
 
     public void dijkstra(String nombre_vi, String nombre_vf){
@@ -359,6 +343,19 @@ public class Grafo {
         for (int i = 0; i < k; i++){
             Vertice aux_3 = pila.pop();
             recorrido.add(aux_3);
+        }
+        
+        llenarRecorridoAristas(recorrido);
+    }
+
+    public void llenarRecorridoAristas(ArrayList <Vertice> recorrido){
+        Vertice v = recorrido.get(0);
+
+        for(int i = 0; i < recorrido.size() - 1; i++){
+            Vertice pv = recorrido.get(i + 1);
+            Arista arista = new Arista(v.getOrigen(), pv.getOrigen());
+            recorridoAristas.add(arista);
+            v = pv;
         }
     }
 

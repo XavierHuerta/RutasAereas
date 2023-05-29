@@ -44,7 +44,7 @@ public class Arista {
     // }
 
     public void pintar(Graphics2D g){
-        g.setColor(Color.red);
+        g.setColor(Color.white);
         
         //Nueva curva
         trayectoria = new QuadCurve2D.Double(pi.getX(), pi.getY(), (pi.getX() + pf.getX()) / 2, ((pi.getY() + pf.getY()) / 2) - 50, pf.getX(), pf.getY());
@@ -53,7 +53,7 @@ public class Arista {
         //float[] dashPattern = {5, 5};
         //g.setStroke(new BasicStroke(2, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1, dashPattern, 0));
         
-        //g.setStroke(new BasicStroke(1));
+        g.setStroke(new BasicStroke(2));
         //Dibuja las curvas
         g.draw(trayectoria);
 

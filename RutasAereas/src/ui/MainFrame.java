@@ -133,6 +133,7 @@ public class MainFrame extends JFrame{
                 
                 grafo.getRecorrido().clear();
                 grafo.resetRecorrido();
+                grafo.getRecorridoAristas().clear();
 
                 System.out.println("Dijkstra");
 
