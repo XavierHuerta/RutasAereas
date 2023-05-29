@@ -50,12 +50,18 @@ public class Arista {
         trayectoria = new QuadCurve2D.Double(pi.getX(), pi.getY(), (pi.getX() + pf.getX()) / 2, ((pi.getY() + pf.getY()) / 2) - 50, pf.getX(), pf.getY());
         
         //Modifica la linea de la curva y la hace punteada
-        float[] dashPattern = {5, 5};
-        g.setStroke(new BasicStroke(2, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1, dashPattern, 0));
+        //float[] dashPattern = {5, 5};
+        //g.setStroke(new BasicStroke(2, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1, dashPattern, 0));
         
+        //g.setStroke(new BasicStroke(1));
         //Dibuja las curvas
         g.draw(trayectoria);
 
+    }
+
+    @Override
+    public String toString(){
+        return "" + (int)peso;
     }
 
     /* METODOS DE ACCESO ------------------------------------------------------------------------------ */

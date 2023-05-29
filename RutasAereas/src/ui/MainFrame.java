@@ -145,6 +145,11 @@ public class MainFrame extends JFrame{
                 grafo.checar_dvpv();
                 
                 String nombre_vf = listaD.getSelectedItem().toString();
+                System.out.println(nombre_vf);
+                System.out.println();
+                grafo.mostrarMatrizSimple();
+                System.out.println();
+
                 grafo.dijkstra(nombre_vi, nombre_vf);
                 System.out.println(grafo.mostrarRecorrido());;
             }

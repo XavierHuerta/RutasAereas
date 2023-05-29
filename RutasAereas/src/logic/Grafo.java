@@ -17,7 +17,7 @@ public class Grafo {
 	    this(20);
         vertices = new ArrayList<>();
         recorrido = new ArrayList<>();
-        M = new Arista[20][20];
+        M = new Arista[16][16];
     }
     public Grafo(int orden){
         this.orden = orden;
@@ -127,6 +127,78 @@ public class Grafo {
     //     for(Vertice v: vertices)
     //         v.setColor(color);
     // }
+
+    public void mostrarMatrizCostos(){
+
+        for(int i = 0; i < orden; i++){
+            for(int j = 0; j < orden; j++){
+
+                if(M[i][j] != null){
+                    if(M[i][j].toString().length() == 3){
+                        System.out.print(M[i][j].toString() + "  |");
+                    }
+                    else if(M[i][j].toString().length() == 4){
+                        System.out.print(M[i][j].toString() + " |");
+                    }
+                    else if(M[i][j].toString().length() == 5)
+                        System.out.print(M[i][j].toString() + "|");
+                }
+                else{
+                    System.out.print(0 + "    |");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public void mostrarMatrizSimple(){
+        System.out.print("                   ");
+        for (Vertice v : vertices) {
+            System.out.print(v.getNombre().charAt(0) + " - ");
+        }
+        System.out.println();
+        for(int i = 0; i < orden; i++){
+            
+            if(vertices.get(i).getNombre().length() == 5){
+                System.out.print(vertices.get(i).getNombre() + "           ");
+            }
+            else if(vertices.get(i).getNombre().length() == 6){
+                System.out.print(vertices.get(i).getNombre() + "          ");
+            }
+            else if(vertices.get(i).getNombre().length() == 7){
+                System.out.print(vertices.get(i).getNombre() + "         ");
+            }
+            else if(vertices.get(i).getNombre().length() == 8){
+                System.out.print(vertices.get(i).getNombre() + "        ");
+            }
+            else if(vertices.get(i).getNombre().length() == 9){
+                System.out.print(vertices.get(i).getNombre() + "       ");
+            }
+            else if(vertices.get(i).getNombre().length() == 10){
+                System.out.print(vertices.get(i).getNombre() + "      ");
+            }
+            else if(vertices.get(i).getNombre().length() == 11){
+                System.out.print(vertices.get(i).getNombre() + "     ");
+            }
+            else if(vertices.get(i).getNombre().length() == 12){
+                System.out.print(vertices.get(i).getNombre() + "    ");
+            }
+            else if(vertices.get(i).getNombre().length() == 16){
+                System.out.print(vertices.get(i).getNombre());
+            }
+
+            for(int j = 0; j < orden; j++){
+                
+                if(M[i][j] != null){
+                    System.out.print(" | " + 1 );
+                }
+                else{
+                    System.out.print(" | " + 0);
+                }
+            }
+            System.out.println();
+        }
+    }
 
     /* RECORIDOS ----------------------------------------------------------------------------- */
     

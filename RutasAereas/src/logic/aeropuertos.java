@@ -9,7 +9,7 @@ public class aeropuertos {
     //MEtodo que crea un grafo con la info de los archivos
     public static Grafo nuevografo(){
         try {
-            Grafo grafo = new Grafo();
+            Grafo grafo = new Grafo(15);
             
             FileReader vertices= new FileReader("src/infografo/vertices.txt");
             FileReader aristas= new FileReader("src/infografo/aristas.txt");
