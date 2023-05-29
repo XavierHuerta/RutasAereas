@@ -87,7 +87,7 @@ public class Vertice extends JLabel{
 
     @Override
     public String toString(){
-        return "no soy nulo jsjsj";
+        return nombre;
     }
 
     /* Metodos de Acceso --------------------------------------- */

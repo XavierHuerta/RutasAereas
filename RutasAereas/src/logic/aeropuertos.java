@@ -5,6 +5,8 @@ import javax.swing.*;
 
 public class aeropuertos {
     private static JFrame error;
+
+    //MEtodo que crea un grafo con la info de los archivos
     public static Grafo nuevografo(){
         try {
             Grafo grafo = new Grafo();

@@ -1,4 +1,4 @@
-París
+Paris
 780
 280
 0
@@ -86,7 +86,7 @@ Vancouver
 frio
 mas nieve
 Medio
-Ciudad de México
+Ciudad de Mexico
 310
 450
 11

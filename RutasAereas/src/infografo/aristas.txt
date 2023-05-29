@@ -1,22 +1,22 @@
 Toronto
-París
+Pares
 25127
 Barcelona
-París
+Pares
 10840
 Vancouver
 Toronto
 10727
-Ciudad de México
+Ciudad de Mexico
 Toronto
 16158
 Nueva York
 Londres
 15475
-Ciudad de México
+Ciudad de Mexico
 Londres
 20626
-Ciudad de México
+Ciudad de Mexico
 Los Angeles
 4171
 Berlin
@@ -25,19 +25,19 @@ Londres
 Sevilla
 Berlin
 4171
-Ciudad de México
+Ciudad de Mexico
 Nueva York
 5227
-París
+Paris
 Venecia
 4537
 Venecia
 Berlin
 5227
-Ciudad de México
+Ciudad de Mexico
 Nueva York
 5179
-Ciudad de México
+Ciudad de Mexico
 Nueva York
 7619
 Berlin
@@ -46,30 +46,30 @@ Barcelona
 Los Angeles
 Miami
 3097
-Ciudad de México
+Ciudad de Mexico
 Miami
 5190
 Monterrey
 Miami
 6994
-Ciudad de México
+Ciudad de Mexico
 Monterrey
 862
-Ciudad de México
+Ciudad de Mexico
 Cancun
 1906
 Cancun
 Monterrey
 1526
-Ciudad de México
+Ciudad de Mexico
 Vancouver
 9929
 Los Angeles
 Vancouver
 9810
-Ciudad de México
+Ciudad de Mexico
 Vancouver
 14817
 Londres
-París
+Paris
 1564
