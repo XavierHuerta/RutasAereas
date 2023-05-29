@@ -110,9 +110,9 @@ public class MainFrame extends JFrame{
             }
         });
 
-        ciudadD= new JLabel("Ciudad destino:");
+        ciudadD = new JLabel("Ciudad destino:");
         ciudadD.setBounds(25,210,100,40);
-        listaD=new JComboBox<>();
+        listaD = new JComboBox<>();
         listaD.setBounds(25, 240, 100, 30);
 
         listaD.addActionListener(new ActionListener() {
