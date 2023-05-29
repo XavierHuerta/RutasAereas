@@ -295,35 +295,23 @@ public class MainFrame extends JFrame{
 
                     Grafo grafo= aeropuertos.nuevografo();
                     grafo.caminoCorto(ciudadOrigen);
+                    grafo.getRecorrido().clear();
+                    grafo.resetRecorrido();
 
+                    grafo.caminoCorto(ciudadOrigen);
+                    grafo.checar_dvpv();
+                    
+                    grafo.dijkstra(ciudadOrigen, ciudadDestino);
+
+                    //panelMapa.paintComponents(getGraphics());                       
+                    
+                    grafo.dibujar(getGraphics());
 
                     
-                        
-                            grafo.getRecorrido().clear();
-                            grafo.resetRecorrido();
-        
-                            grafo.caminoCorto(ciudadOrigen);
-                            grafo.checar_dvpv();
-                            
-                            
-                            grafo.dijkstra(ciudadOrigen, ciudadDestino);
-
-                            panelMapa.repaint();                       
-                            
-                           // grafo.dibujar(g2);
-
-                            
-                            //recorrido_Dijkstra.setText(grafo.mostrarRecorrido());
-            
-                            //colorear();
-                            //colorearAristas();
-                        
-                    
-
-
-
-                    
-                    
+                    //recorrido_Dijkstra.setText(grafo.mostrarRecorrido());
+    
+                    //colorear();
+                    //colorearAristas();
                 }
             });
 

@@ -109,10 +109,10 @@ public class Grafo {
 
 	}*/
 
-    public void dibujar(Graphics2D g2){
+    public void dibujar(Graphics2D graphics){
 		//Todo: pintar aristas
        for (Arista arista : recorridoAristas) {
-            arista.pintar(g2);
+            arista.pintar(graphics);
        }
 
 
