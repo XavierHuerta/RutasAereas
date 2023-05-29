@@ -16,6 +16,10 @@ public class Vertice extends JLabel{
     private ImageIcon bandera;
     private String nombre;
     private boolean visitado;
+    private int visa;
+    private String clima;
+    private String atracciones;
+    private String costo;
     //Variables para Dijkstra
     private int dv;
     private Vertice pv;
@@ -47,7 +51,7 @@ public class Vertice extends JLabel{
         mostrarVentana();
         
     }
-    public Vertice(int x, int y, String nombre, int index){
+    public Vertice(int x, int y, String nombre, int index, int visa, String clima, String atracciones, String costo){
         bandera = new ImageIcon("RutasAereas/src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
@@ -58,6 +62,10 @@ public class Vertice extends JLabel{
 
         origen = correccion;
         this.nombre = nombre;
+        this.visa=visa;
+        this.clima=clima;
+        this.atracciones=atracciones;
+        this.costo=costo;
         mostrarVentana();
 
         //variables de dijkstra
@@ -95,6 +103,30 @@ public class Vertice extends JLabel{
     }
     public int getDv(){
         return dv;
+    }
+    public int getVisa() {
+        return visa;
+    }
+    public void setVisa(int visa) {
+        this.visa = visa;
+    }
+    public String getClima() {
+        return clima;
+    }
+    public void setClima(String clima) {
+        this.clima = clima;
+    }
+    public String getAtracciones() {
+        return atracciones;
+    }
+    public void setAtracciones(String atracciones) {
+        this.atracciones = atracciones;
+    }
+    public String getCosto() {
+        return costo;
+    }
+    public void setCosto(String costo) {
+        this.costo = costo;
     }
     public void setPv(Vertice pv){
         this.pv = pv;

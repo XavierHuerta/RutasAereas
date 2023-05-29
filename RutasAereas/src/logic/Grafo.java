@@ -33,9 +33,9 @@ public class Grafo {
         Vertice v = new Vertice(x, y);
         vertices.add(v);
     }
-    public void agregarVertice(int x, int y, String nombre, int index){		
+    public void agregarVertice(int x, int y, String nombre, int index, int visa, String clima, String atracciones, String costo){		
         // Por hacer:
-        Vertice v = new Vertice(x, y, nombre, index);
+        Vertice v = new Vertice(x, y, nombre, index, visa, clima, atracciones, costo);
         vertices.add(v);
     }
     
