@@ -1,29 +1,20 @@
 package logic;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
 import java.awt.geom.QuadCurve2D;
+import javax.swing.Timer;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
-public class AnimacionAvion extends JFrame {
-    private JLabel label;
+public class Animacion extends JLabel{
     private Timer timer;
     private double t;
-
-    //Constructor
-    public AnimacionAvion() {
-        setTitle("JLabel Curve Animation");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 400);
-
-        // Crea una curva QuadCurve2D
-        QuadCurve2D curve = new QuadCurve2D.Double(50, 200, 200, 50, 350, 200);
-
-        // Crea un JLabel
-        label = new JLabel(new ImageIcon("src/images/avionIzq.png"));
-        label.setBounds(0, 0, 100, 20);
-        add(label);
+    
+    public Animacion( QuadCurve2D curve){
+        setIcon(new ImageIcon("src/images/avionIzq.png"));
+        setSize(24, 24);
 
         // Crea un temporizador para actualizar la posición
         timer = new Timer(10, new ActionListener() {
@@ -31,9 +22,9 @@ public class AnimacionAvion extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Calcula la posición en la curva para el valor actual de t
                 Point2D point = calculatePointOnCurve(curve, t);
-                int x = (int) point.getX() - label.getWidth() / 2;
-                int y = (int) point.getY() - label.getHeight() / 2;
-                label.setLocation(x, y);
+                int x = (int) point.getX() - getWidth() / 2;
+                int y = (int) point.getY() - getHeight() / 2;
+                setLocation(x, y);
 
                 // Incrementa t para el siguiente paso de la animación
                 t += 0.01;
@@ -43,11 +34,6 @@ public class AnimacionAvion extends JFrame {
                 }
             }
         });
-
-        setVisible(true);
-
-        // Inicia la animación
-        timer.start();
     }
 
     // Calcula el punto en la curva para un valor t dado
@@ -57,13 +43,4 @@ public class AnimacionAvion extends JFrame {
 
         return new Point2D.Double(x, y);
     }
-
-    // public static void main(String[] args) {
-    //     SwingUtilities.invokeLater(new Runnable() {
-    //         @Override
-    //         public void run() {
-    //             new AnimacionAvion();
-    //         }
-    //     });
-    // }
 }

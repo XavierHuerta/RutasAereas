@@ -2,7 +2,6 @@ package logic;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.*;
 
@@ -14,7 +13,7 @@ public class Arista {
     private Point2D pi, pf; //Pi = punto inicial (x,y) ; pf = punto dinal (x,y)
     private Color color;
     //private Line2D linea; //Skin linea
-    private Path2D curva;
+    private QuadCurve2D trayectoria;
 
     /* CONSTRUCTORES */
     public Arista(Point2D pi, Point2D pf){
@@ -44,21 +43,18 @@ public class Arista {
     //     //g2.drawString(String.valueOf(peso), (float) ((pi.getX() + pf.getX()) / 2), (float) ((pi.getY() + pf.getY()) / 2) );
     // }
 
-    public void pintar(Graphics g){
+    public void pintar(Graphics2D g){
         g.setColor(Color.red);
-
-        //Calcular punto medio
-
-        curva = new Path2D.Double();//Crea un path que es como un pincel
-        curva.moveTo(pi.getX(), pi.getY());//mueve el pincel a la posicion inicial
-        curva.curveTo(pi.getX(), pi.getY(), (pi.getX() + pf.getX()) / 2, 
-                    ((pi.getY() + pf.getY()) / 2) - 50, pf.getX(), pf.getY());//Dibuja la curva en puntos especificados
-
+        
+        //Nueva curva
+        trayectoria = new QuadCurve2D.Double(pi.getX(), pi.getY(), (pi.getX() + pf.getX()) / 2, ((pi.getY() + pf.getY()) / 2) - 50, pf.getX(), pf.getY());
+        
         //Modifica la linea de la curva y la hace punteada
         float[] dashPattern = {5, 5};
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.setStroke(new BasicStroke(2, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1, dashPattern, 0));
-        g2d.draw(curva);
+        g.setStroke(new BasicStroke(2, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1, dashPattern, 0));
+        
+        //Dibuja las curvas
+        g.draw(trayectoria);
 
     }
 
@@ -72,7 +68,7 @@ public class Arista {
     public double getPeso(){
         return peso;
     }
-    public Path2D getPath2d(){
-        return curva;
+    public QuadCurve2D getCurva(){
+        return trayectoria;
     }
 }

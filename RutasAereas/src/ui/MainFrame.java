@@ -14,9 +14,10 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
 
-
+import logic.Animacion;
 import logic.Grafo;
 import logic.Vertice;
 import logic.aeropuertos;
@@ -106,8 +107,10 @@ public class MainFrame extends JFrame{
         });
 
         //Boton buscar para dijsktra 
-        btnBuscar = new BtnBuscar();
-        btnBuscar.setLocation(40, 400);
+        btnBuscar = new BtnBuscar("Buscar", panelMapa);
+        btnBuscar.setBackground(Color.decode("#0B2343"));
+        btnBuscar.setBounds(25, 400, 300, 30);
+        
 
         //Agrega etiquetas, lista desplegada y boton buscar al panel
         panelInfo.add(Logo1);
@@ -168,7 +171,7 @@ public class MainFrame extends JFrame{
     /*CLASES INTERNAS -------------------------------------------------------------------------------- */
 
     //Clase para hacer el panel con fondo de mapa
-    class MapaPanel extends JPanel{
+    public class MapaPanel extends JPanel{
         private Image mapa;
         private Grafo grafo;//Grafo con los destinos
 
@@ -200,10 +203,11 @@ public class MainFrame extends JFrame{
             }
         }
         public void cargargrafo(){
-                        /*Creacion de las etiquetas destino */   
+            /*Creacion de las etiquetas destino */   
 
         }
 
+        //MEtodo que pinta el mapa en el panel
         @Override
         public void paint(Graphics g){
             mapa = new ImageIcon(getClass().getResource("/images/map.png")).getImage();
@@ -218,6 +222,10 @@ public class MainFrame extends JFrame{
             //setBackground(Color.darkGray);
             grafo.dibujar(g2);
         }
+
+        public Grafo getGrafo(){
+            return grafo;
+        }
     }
 
 
@@ -225,23 +233,30 @@ public class MainFrame extends JFrame{
     public class BtnBuscar extends JPanel{
         private JLabel btnBuscar;
 
-        public BtnBuscar(){
-            setSize(100, 30);
-            setBackground(Color.CYAN);
-            setVisible(true);
-
-            btnBuscar = new JLabel("Buscar");
-            btnBuscar.setSize(40,10);
+        //Constructor
+        public BtnBuscar(String text, JPanel mapa){
+            btnBuscar = new JLabel(text);
+            btnBuscar.setSize(getWidth(),getHeight());
+            btnBuscar.setForeground(Color.white);
             btnBuscar.setHorizontalTextPosition((int)MainFrame.CENTER_ALIGNMENT);
+
             btnBuscar.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e){
-                    
+                    SwingUtilities.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            new Animacion();
+                        }
+                    });
                 }
             });
 
             add(btnBuscar);
         }
-    }
 
+        public JLabel getJLabel(){
+            return btnBuscar;
+        }
+    }
 }
