@@ -17,12 +17,12 @@ import javax.swing.border.LineBorder;
 import logic.Animacion;
 import logic.Arista;
 import logic.Grafo;
+import logic.Vertice;
 
 public class MainFrame extends JFrame{
     private JPanel panelInfo;
     private JPanel panelMapa;
     private JFrame error;
-    private JPanel btnBuscar;
     private JLabel Logo1;
     private JComboBox<String> listaPais;
     private JComboBox<String> listaCiudad, listaD;
@@ -31,6 +31,7 @@ public class MainFrame extends JFrame{
     private JLabel btn_Label;
     private Grafo grafo;
     private Animacion animacion;
+    private JLabel costo;
     
     public MainFrame(Grafo grafo){  
         this.grafo = grafo;
@@ -136,6 +137,7 @@ public class MainFrame extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e){
                 System.out.println("Aqui esta el boton");
+                long precioTotal = 0;
                 
                 grafo.getRecorrido().clear();
                 grafo.resetRecorrido();
@@ -164,11 +166,22 @@ public class MainFrame extends JFrame{
                     animacion.runAnimación(a.getCurva());
                 }
                 
-                System.out.println(grafo.mostrarRecorrido());;
+                System.out.println(grafo.mostrarRecorrido());
+                
+                for (Arista a : grafo.getRecorridoAristas()) {
+                    precioTotal += (int)a.getPeso();
+                }
+
+                System.out.println(precioTotal);
             }
         });
 
         btn_Buscar.add(btn_Label);
+
+        costo = new JLabel("Costo Total: ");
+        costo.setForeground(Color.decode("#0B2343"));
+        costo.setBounds(25, 500, 100, 30);
+
 
         //Agrega etiquetas, lista desplegada y boton buscar al panel
         panelInfo.add(Logo1);
@@ -179,6 +192,7 @@ public class MainFrame extends JFrame{
         panelInfo.add(ciudadD);
         panelInfo.add(listaD);
         panelInfo.add(btn_Buscar);
+        panelInfo.add(costo);
 
         //Adicion de los paneles al JFrame
         add(panelMapa);
