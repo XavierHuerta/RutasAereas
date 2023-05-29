@@ -67,9 +67,9 @@ public class Win extends JFrame {
         
 
         fotos = new JPanel();
-        fotos.setBackground(Color.GREEN);
-        //mostrarImagen();
+        //fotos.setBackground(Color.GREEN);
         fotos.setBounds(25, 40, 250, 150);
+        mostrarImagen();
 
         atracciones = new JTextArea();
         atracciones.setSize(180, 80);
@@ -99,9 +99,9 @@ public class Win extends JFrame {
 
 
         if(v.getVisa() == 1){
-            visa = new JLabel(new ImageIcon("src/images/visa16.png"));
+            visa = new JLabel(new ImageIcon("RutasAereas/src/images/visa16.png"));
         } else {
-            visa = new JLabel(new ImageIcon("src/images/visa24.png"));
+            visa = new JLabel(new ImageIcon("RutasAereas/src/images/visa24.png"));
         }
         visa.setLocation(166, 266);
         visa.setSize(24, 24);
@@ -124,72 +124,77 @@ public class Win extends JFrame {
         Icon icon;
         switch(m){
             case 0:
-                imagen = new ImageIcon("src/images/paris.jpg");
+                imagen = new ImageIcon("RutasAereas/src/images/paris.jpg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 1:
-                imagen = new ImageIcon("src/images/venecia.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/venecia.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 2:
-                imagen = new ImageIcon("src/images/Toronto.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/toronto.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 3:
-                imagen = new ImageIcon("src/images/londres.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/londres.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 4:
-                imagen = new ImageIcon("src/images/losangeles.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/losangeles.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 5:
-                imagen = new ImageIcon("src/images/berlin.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/berlin.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 6:
-                imagen = new ImageIcon("src/images/barcelona.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/barcelona.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 7:
-                imagen = new ImageIcon("src/images/nuevayork.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/nuevayork.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 8:
-                imagen = new ImageIcon("src/images/miami.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/miami.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 9:
-                imagen = new ImageIcon("src/images/monterrey.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/monterrey.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 10:
-                imagen = new ImageIcon("src/images/vancouver.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/vancouver.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 11:
-                imagen = new ImageIcon("src/images/cdmx.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/cdmx.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 12:
-                imagen = new ImageIcon("/src/images/cancun.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/cancun.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;
             case 13:
-                imagen = new ImageIcon("src/images/elcairo.jpeg");
+                imagen = new ImageIcon("RutasAereas/src/images/elcairo.jpeg");
+                icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
+                galeria.setIcon(icon);
+                break;
+            case 14:
+                imagen = new ImageIcon("RutasAereas/src/images/sevilla.jpeg");
                 icon = new ImageIcon(imagen.getImage().getScaledInstance(galeria.getWidth(), galeria.getHeight(), Image.SCALE_DEFAULT));
                 galeria.setIcon(icon);
                 break;            

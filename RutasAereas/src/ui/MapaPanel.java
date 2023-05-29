@@ -27,14 +27,14 @@ public class MapaPanel extends JPanel{
                 public void mouseEntered(MouseEvent evt){
                     a.setSize(32, 32);
                     a.setLocation(a.getX() - 4, a.getY() - 8);
-                    a.setIcon(new ImageIcon("src/images/marca2.png"));
+                    a.setIcon(new ImageIcon("RutasAereas/src/images/marca2.png"));
                     a.getWin().setVisible(true);
                 }
                 @Override
                 public void mouseExited(MouseEvent evt){
                     a.setSize(24, 24);
                     a.setLocation(a.getX() + 4, a.getY() + 8);
-                    a.setIcon(new ImageIcon("src/images/marca1.png"));
+                    a.setIcon(new ImageIcon("RutasAereas/src/images/marca1.png"));
                     a.getWin().setVisible(false);
                 }
             });

@@ -39,7 +39,7 @@ public class Vertice extends JLabel{
     }
     public Vertice(int x, int y){
         //this(x,y, "" + nVertices); //Se nombra al vertice por su número
-        bandera = new ImageIcon("src/images/marca1.png");
+        bandera = new ImageIcon("RutasAereas/src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
         //centro = new Point2D.Double(x, y);
@@ -52,7 +52,7 @@ public class Vertice extends JLabel{
         
     }
     public Vertice(int x, int y, String nombre, int index, int visa, String clima, String atracciones, String costo){
-        bandera = new ImageIcon("src/images/marca1.png");
+        bandera = new ImageIcon("RutasAereas/src/images/marca1.png");
         setIcon(bandera);
         setBounds(x, y, dimencion, dimencion);
         nLugar = index;
