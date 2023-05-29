@@ -18,12 +18,20 @@ public class aeropuertos {
             String x=verticesbuffer.readLine();
             String y=verticesbuffer.readLine();
             String index = verticesbuffer.readLine();
-            while(aeropuerto != null && x != null && y != null && index != null){
-                grafo.agregarVertice(Integer.parseInt(x), Integer.parseInt(y), aeropuerto, Integer.parseInt(index));
+            String visa=verticesbuffer.readLine();
+            String clima=verticesbuffer.readLine();
+            String atracciones=verticesbuffer.readLine();
+            String costo=verticesbuffer.readLine();
+            while(aeropuerto != null && x != null && y != null && index != null&&clima!= null&&visa!= null&&atracciones!= null){
+                grafo.agregarVertice(Integer.parseInt(x), Integer.parseInt(y), aeropuerto, Integer.parseInt(index), Integer.parseInt(visa), clima, atracciones, costo);
                 aeropuerto = verticesbuffer.readLine();
                 x = verticesbuffer.readLine();
                 y = verticesbuffer.readLine();
                 index = verticesbuffer.readLine();
+                visa = verticesbuffer.readLine();
+                clima = verticesbuffer.readLine();
+                atracciones = verticesbuffer.readLine();
+                costo = verticesbuffer.readLine();
                 
             }
             vertices.close();
