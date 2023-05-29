@@ -263,7 +263,7 @@ public class MainFrame extends JFrame{
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D)g; 
             //setBackground(Color.darkGray);
-            //grafo.dibujar(g2);
+            grafo.dibujar(g2);
             
         }
 
@@ -302,10 +302,11 @@ public class MainFrame extends JFrame{
                     grafo.checar_dvpv();
                     
                     grafo.dijkstra(ciudadOrigen, ciudadDestino);
+                   // System.out.println(grafo.getRecorrido());
 
                     //panelMapa.paintComponents(getGraphics());                       
                     
-                    grafo.dibujar(getGraphics());
+                    //grafo.dibujar(getGraphics());
 
                     
                     //recorrido_Dijkstra.setText(grafo.mostrarRecorrido());
