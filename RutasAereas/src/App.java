@@ -9,7 +9,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         Grafo grafo = aeropuertos.nuevografo();;
 
-        ImageIcon icon = new ImageIcon("src/images/icon.jpg");
+        ImageIcon icon = new ImageIcon("RutasAereas/src/images/icon.jpg");
         MainFrame mFrame = new MainFrame(grafo);
         mFrame.setSize(1350, 575);
         mFrame.setIconImage(icon.getImage());

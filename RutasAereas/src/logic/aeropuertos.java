@@ -13,18 +13,26 @@ public class aeropuertos {
             
             FileReader vertices= new FileReader("RutasAereas/src/infografo/vertices.txt");
             FileReader aristas= new FileReader("RutasAereas/src/infografo/aristas.txt");
-            //prueba
             BufferedReader verticesbuffer = new BufferedReader(vertices);
             BufferedReader aristasbuffer = new BufferedReader(aristas);
-            String aeropuerto=verticesbuffer.readLine();
-            String x=verticesbuffer.readLine();
-            String y=verticesbuffer.readLine();
+
+            String aeropuerto = verticesbuffer.readLine();
+            String x = verticesbuffer.readLine();
+            String y = verticesbuffer.readLine();
             String index = verticesbuffer.readLine();
-            String visa=verticesbuffer.readLine();
-            String clima=verticesbuffer.readLine();
-            String atracciones=verticesbuffer.readLine();
-            String costo=verticesbuffer.readLine();
-            while(aeropuerto != null && x != null && y != null && index != null&&clima!= null&&visa!= null&&atracciones!= null){
+            String visa = verticesbuffer.readLine();
+            String clima = verticesbuffer.readLine();
+            String atracciones = verticesbuffer.readLine();
+            String costo = verticesbuffer.readLine();
+
+            while(aeropuerto != null && 
+                    x != null &&
+                    y != null && 
+                    index != null && 
+                    clima!= null && 
+                    visa!= null && 
+                    atracciones!= null){
+
                 grafo.agregarVertice(Integer.parseInt(x), Integer.parseInt(y), aeropuerto, Integer.parseInt(index), Integer.parseInt(visa), clima, atracciones, costo);
                 aeropuerto = verticesbuffer.readLine();
                 x = verticesbuffer.readLine();
@@ -39,9 +47,6 @@ public class aeropuertos {
             vertices.close();
 
             /*creacion de las aristas */
-
-            //System.out.println(grafo.buscarVi("Venecia").getOrigen().toString());
-            //grafo.
             
             String origen=aristasbuffer.readLine();
             String destino=aristasbuffer.readLine();

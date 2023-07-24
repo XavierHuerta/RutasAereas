@@ -66,7 +66,7 @@ public class MainFrame extends JFrame{
         //Logo Aeromexico
         Logo1 = new JLabel();
         Logo1.setBounds(20, 20, 227, 40);
-        ImageIcon logo = new ImageIcon("src/images/Logo.png");
+        ImageIcon logo = new ImageIcon("RutasAereas/src/images/Logo.png");
         Image imag = logo.getImage();
         Image scalImag = imag.getScaledInstance(Logo1.getWidth(), Logo1.getHeight(), Image.SCALE_SMOOTH);
         Logo1.setIcon(new ImageIcon(scalImag));
